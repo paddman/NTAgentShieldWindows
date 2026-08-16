@@ -337,4 +337,764 @@ func New(cfg config.Config, logger *log.Logger) (*Runtime, error) {
 		} else {
 			sensor, err := ebpfsensor.New(runtime.processGraph, ebpfsensor.Options{RingBufferBytes: cfg.EBPFSensor.RingBufferBytes, MaxEventsPerSec: cfg.EBPFSensor.MaxEventsPerSec})
 			if err != nil {
-				rßnõ¶‰žËkºwµçQ•áÐ¤ì(%™½È|°Ñ…¥±•È€èôÉ…¹”È¹Ñ…¥±•ÉÌì($%¥˜•ÉÈ€èôÑà¹ÉÈ ¤ì•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸($%ô($%•Ù•¹ÑÌ°•ÉÉÌ€èôÑ…¥±•È¹A½±° ¤($%™½È|°•ÉÈ€èôÉ…¹”•ÉÉÌì($$%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰™¥±”µÑ…¥°ˆ°•ÉÈ¤($%ô($%™½È|°•Ù•¹Ð€èôÉ…¹”•Ù•¹ÑÌì($$%¥˜|°•ÉÈ€èôÈ¹ÁÉ½•ÍÌ¡•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($$$%È¹•ÉÉ½É½Õ¹Ð¹‘ Ä¤($$$%È¹±½•È¹AÉ¥¹Ñ˜ ‰•Ù•¹ÐÁÉ½•ÍÍ¥¹œ•ÉÉ½Èè€•Øˆ°•ÉÈ¤($$%ô($%ô(%ô)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤Á½±±9…Ñ¥Ù”¡Ñà½¹Ñ•áÐ¹½¹Ñ•áÐ¤ì(%™½È|°Í½ÕÉ”€èôÉ…¹”È¹¹…Ñ¥Ù•M½ÕÉ•Ìì($%¥˜•ÉÈ€èôÑà¹ÉÈ ¤ì•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸($%ô($%‰…Ñ °•ÉÉÌ€èôÍ½ÕÉ”¹A½±°¡Ñà¤($%™½È|°•ÉÈ€èôÉ…¹”•ÉÉÌì($$%È¹É•½É‘½±±•Ñ½ÉÉÉ½È¡Í½ÕÉ”¹-¥¹ ¤¬ˆ¼ˆ­Í½ÕÉ”¹% ¤°•ÉÈ¤($%ô($%ÁÉ½•ÍÍ•€èôÑÉÕ”($%™½È|°•Ù•¹Ð€èôÉ…¹”‰…Ñ ¹Ù•¹ÑÌì($$%¥˜|°•ÉÈ€èôÈ¹ÁÉ½•ÍÌ¡•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($$$%ÁÉ½•ÍÍ•€ô™…±Í”($$$%È¹É•½É‘½±±•Ñ½ÉÉÉ½È¡Í½ÕÉ”¹-¥¹ ¤¬ˆ¼ˆ­Í½ÕÉ”¹% ¤°•ÉÈ¤($$$%‰É•…¬($$%ô($$%È¹¹…Ñ¥Ù•Ù•¹Ñ½Õ¹Ð¹‘ Ä¤($%ô($%¥˜ÁÉ½•ÍÍ•ì($$%¥˜•ÉÈ€èô‰…Ñ ¹­¹½Ý±•‘” ¤ì•ÉÈ€„ô¹¥°ì($$$%È¹É•½É‘½±±•Ñ½ÉÉÉ½È¡Í½ÕÉ”¹-¥¹ ¤¬ˆ¼ˆ­Í½ÕÉ”¹% ¤¬ˆ½ÕÉÍ½Èˆ°•ÉÈ¤($$%ô($%ô(%ô)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤½±±•Ñ%¹Ù•¹Ñ½Éä¡Ñà½¹Ñ•áÐ¹½¹Ñ•áÐ°™½É”‰½½°¤ì(%¥˜È¹¥¹Ù•¹Ñ½Éå½±±•Ñ½È€ôô¹¥°ñðÑà¹ÉÈ ¤€„ô¹¥°ì($%É•ÑÕÉ¸(%ô(%±…ÍÑ9…¹¼€èôÈ¹±…ÍÑ%¹Ù•¹Ñ½Éå9…¹¼¹1½… ¤(%¥˜€…™½É”€˜˜±…ÍÑ9…¹¼€„ô€À€˜˜Ñ¥µ”¹M¥¹”¡Ñ¥µ”¹U¹¥à À°±…ÍÑ9…¹¼¤¤€ðÈ¹¥¹Ù•¹Ñ½Éå%¹Ñ•ÉÙ…°ì($%É•ÑÕÉ¸(%ô(%•Ù•¹Ð°•ÉÈ€èôÈ¹¥¹Ù•¹Ñ½Éå½±±•Ñ½È¹Ù•¹Ð¡Ñà¤(%¥˜•ÉÈ€„ô¹¥°ì($%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰¹…Ñ¥Ù”µ¥¹Ù•¹Ñ½Éäˆ°•ÉÈ¤($%É•ÑÕÉ¸(%ô(%É•‘…Ð¹Ù•¹Ð ™•Ù•¹Ð¤(%¥˜|°•ÉÈ€èôÈ¹ÁÉ½•ÍÌ¡•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰¹…Ñ¥Ù”µ¥¹Ù•¹Ñ½Éäˆ°•ÉÈ¤($%É•ÑÕÉ¸(%ô(%¥˜È¹‰…Í•±¥¹•MÑ½É”€„ô¹¥°ì($%Í¹…ÁÍ¡½Ð°•ÉÈ€èô‰…Í•±¥¹”¹M¹…ÁÍ¡½ÑÉ½µÙ•¹Ð¡•Ù•¹Ð¤($%¥˜•ÉÈ€„ô¹¥°ì($$%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰¥¹Ù•¹Ñ½Éäµ‰…Í•±¥¹”ˆ°•ÉÈ¤($$%É•ÑÕÉ¸($%ô($%¥˜•ÉÈ€èôÈ¹‰…Í•±¥¹•MÑ½É”¹M…Ù”¡Í¹…ÁÍ¡½Ð¤ì•ÉÈ€„ô¹¥°ì($$%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰¥¹Ù•¹Ñ½Éäµ‰…Í•±¥¹”ˆ°•ÉÈ¤($$%É•ÑÕÉ¸($%ô(%ô(%½±±•Ñ•‘Ð€èôÑ¥µ”¹9½Ü ¤¹UQ ¤(%È¹±…ÍÑ%¹Ù•¹Ñ½Éå9…¹¼¹MÑ½É”¡½±±•Ñ•‘Ð¹U¹¥á9…¹¼ ¤¤(%È¹¥¹Ù•¹Ñ½Éå½Õ¹Ð¹‘ Ä¤(%È¹±½•È¹AÉ¥¹Ñ˜ ‰…ÍÍ•Ð¥¹Ù•¹Ñ½Éä½±±•Ñ•ÁÉ½•ÍÍ•Ìô•ÐÍ•ÉÙ¥•Ìô•Ð±¥ÍÑ•¹•ÉÌô•ÐÍ½™ÑÝ…É”ô•Ðˆ°È¹™œ¹%¹Ù•¹Ñ½Éä¹%¹±Õ‘•AÉ½•ÍÍ•Ì°È¹™œ¹%¹Ù•¹Ñ½Éä¹%¹±Õ‘•M•ÉÙ¥•Ì°È¹™œ¹%¹Ù•¹Ñ½Éä¹%¹±Õ‘•1¥ÍÑ•¹•ÉÌ°È¹™œ¹%¹Ù•¹Ñ½Éä¹%¹±Õ‘•M½™ÑÝ…É”¤)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤½±±•ÑAÉ½•ÍÍÉ…Á ¡Ñà½¹Ñ•áÐ¹½¹Ñ•áÐ°™½É”‰½½°¤ì(%¥˜È¹ÁÉ½•ÍÍÉ…Á €ôô¹¥°ñðÑà¹ÉÈ ¤€„ô¹¥°ì($%É•ÑÕÉ¸(%ô(%±…ÍÑ9…¹¼€èôÈ¹±…ÍÑAÉ½•ÍÍÉ…Á¡9…¹¼¹1½… ¤(%¥˜€…™½É”€˜˜±…ÍÑ9…¹¼€„ô€À€˜˜Ñ¥µ”¹M¥¹”¡Ñ¥µ”¹U¹¥à À°±…ÍÑ9…¹¼¤¤€ðÈ¹ÁÉ½•ÍÍÉ…Á¡%¹Ñ•ÉÙ…°ì($%É•ÑÕÉ¸(%ô(%‰…Ñ °•ÉÈ€èôÈ¹ÁÉ½•ÍÍÉ…Á ¹I•½¹¥±”¡Ñà¤(%¥˜•ÉÈ€„ô¹¥°ì($%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰±¥¹ÕàµÁÉ½•ÍÌµÉ…Á ˆ°•ÉÈ¤($%É•ÑÕÉ¸(%ô(%™½È|°•Ù•¹Ð€èôÉ…¹”‰…Ñ ¹Ù•¹ÑÌì($%¥˜|°•ÉÈ€èôÈ¹ÁÉ½•ÍÌ¡•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($$%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰±¥¹ÕàµÁÉ½•ÍÌµÉ…Á ˆ°•ÉÈ¤($$%É•ÑÕÉ¸($%ô($%È¹ÁÉ½•ÍÍÉ…Á¡Ù•¹Ñ½Õ¹Ð¹‘ Ä¤(%ô(%¥˜•ÉÈ€èô‰…Ñ ¹­¹½Ý±•‘” ¤ì•ÉÈ€„ô¹¥°ì($%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰±¥¹ÕàµÁÉ½•ÍÌµÉ…Á ½¡•­Á½¥¹Ðˆ°•ÉÈ¤($%É•ÑÕÉ¸(%ô(%È¹±…ÍÑAÉ½•ÍÍÉ…Á¡9…¹¼¹MÑ½É”¡Ñ¥µ”¹9½Ü ¤¹UQ ¤¹U¹¥á9…¹¼ ¤¤)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤½±±•ÑAÉ½•ÍÍ9•ÑÝ½É¬¡Ñà½¹Ñ•áÐ¹½¹Ñ•áÐ°™½É”‰½½°¤ì(%¥˜È¹ÁÉ½•ÍÍ9•ÑÝ½É¬€ôô¹¥°ñðÑà¹ÉÈ ¤€„ô¹¥°ì($%É•ÑÕÉ¸(%ô(%±…ÍÑ9…¹¼€èôÈ¹±…ÍÑAÉ½•ÍÍ9•ÑÝ½É­9…¹¼¹1½… ¤(%¥˜€…™½É”€˜˜±…ÍÑ9…¹¼€„ô€À€˜˜Ñ¥µ”¹M¥¹”¡Ñ¥µ”¹U¹¥à À°±…ÍÑ9…¹¼¤¤€ðÈ¹ÁÉ½•ÍÍ9•ÑÝ½É­%¹Ñ•ÉÙ…°ì($%É•ÑÕÉ¸(%ô(%‰…Ñ °•ÉÈ€èôÈ¹ÁÉ½•ÍÍ9•ÑÝ½É¬¹I•½¹¥±”¡Ñà¤(%¥˜•ÉÈ€„ô¹¥°ì($%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰±¥¹ÕàµÁÉ½•ÍÌµ¹•ÑÝ½É¬ˆ°•ÉÈ¤($%É•ÑÕÉ¸(%ô(%™½È|°•Ù•¹Ð€èôÉ…¹”‰…Ñ ¹Ù•¹ÑÌì($%¥˜|°•ÉÈ€èôÈ¹ÁÉ½•ÍÌ¡•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($$%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰±¥¹ÕàµÁÉ½•ÍÌµ¹•ÑÝ½É¬ˆ°•ÉÈ¤($$%É•ÑÕÉ¸($%ô($%È¹ÁÉ½•ÍÍ9•ÑÝ½É­Ù•¹Ñ½Õ¹Ð¹‘ Ä¤(%ô(%¥˜•ÉÈ€èô‰…Ñ ¹­¹½Ý±•‘” ¤ì•ÉÈ€„ô¹¥°ì($%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰±¥¹ÕàµÁÉ½•ÍÌµ¹•ÑÝ½É¬½¡•­Á½¥¹Ðˆ°•ÉÈ¤($%É•ÑÕÉ¸(%ô(%È¹±…ÍÑAÉ½•ÍÍ9•ÑÝ½É­9…¹¼¹MÑ½É”¡Ñ¥µ”¹9½Ü ¤¹UQ ¤¹U¹¥á9…¹¼ ¤¤)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤ÍÑ…ÉÑ	AM•¹Í½È¡Ñà½¹Ñ•áÐ¹½¹Ñ•áÐ¤ì(%¥˜È¹•‰Á™!•±Á•È€„ô¹¥°ì($%¼È¹ÉÕ¹M•¹Í½É!•±Á•È¡Ñà¤($%É•ÑÕÉ¸(%ô(%¥˜È¹•‰Á™M•¹Í½È€ôô¹¥°ì($%É•ÑÕÉ¸(%ô(%¥˜•ÉÈ€èôÈ¹•‰Á™M•¹Í½È¹MÑ…ÉÐ¡Ñà°™Õ¹Œ¡•Ù•¹Ðµ½‘•°¹Ù•¹Ð¤•ÉÉ½Èì($%¥˜|°•ÉÈ€èôÈ¹ÁÉ½•ÍÌ¡•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸•ÉÈ($%ô($%È¹•‰Á™Ù•¹Ñ½Õ¹Ð¹‘ Ä¤($%É•ÑÕÉ¸¹¥°(%ô¤ì•ÉÈ€„ô¹¥°ì($%È¹±½•È¹AÉ¥¹Ñ˜ ‰1¥¹Õà•	AÍ•¹Í½ÈÕ¹…Ù…¥±…‰±”è€•Øì…Õ‘¥Ñ½©½ÕÉ¹…±™…±±‰…¬½¹Ñ¥¹Õ•Ìˆ°•ÉÈ¤(%ô)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤ÉÕ¹M•¹Í½É!•±Á•È¡Ñà½¹Ñ•áÐ¹½¹Ñ•áÐ¤ì(%±…ÍÑÉÉ½È€èô€ˆˆ(%™½ÈÑà¹ÉÈ ¤€ôô¹¥°ì($%•ÉÈ€èôÈ¹•‰Á™!•±Á•È¹IÕ¸¡Ñà°™Õ¹Œ¡•Ù•¹Ðµ½‘•°¹Ù•¹Ð¤•ÉÉ½Èì($$%¥˜|°•ÉÈ€èôÈ¹ÁÉ½•ÍÌ¡•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($$$%É•ÑÕÉ¸•ÉÈ($$%ô($$%È¹•‰Á™Ù•¹Ñ½Õ¹Ð¹‘ Ä¤($$%É•ÑÕÉ¸¹¥°($%ô°™Õ¹Œ¡¡•…±Ñ Í•¹Í½É¥ÁŒ¹!•…±Ñ ¤ì($$%È¹•‰Á™!•±Á•É!•…±Ñ¡5Ô¹1½¬ ¤($$%È¹•‰Á™!•±Á•É!•…±Ñ €ô¡•…±Ñ ($$%È¹•‰Á™!•±Á•É!•…±Ñ¡5Ô¹U¹±½¬ ¤($%ô¤($%¥˜Ñà¹ÉÈ ¤€„ô¹¥°ì($$%É•ÑÕÉ¸($%ô($%µ•ÍÍ…”€èô€‰Í•¹Í½È¡•±Á•ÈÍÑ½ÁÁ•ˆ($%¥˜•ÉÈ€„ô¹¥°ì($$%µ•ÍÍ…”€ô•ÉÈ¹ÉÉ½È ¤($%ô($%¥˜µ•ÍÍ…”€„ô±…ÍÑÉÉ½Èì($$%È¹±½•È¹AÉ¥¹Ñ˜ ‰1¥¹ÕàÍ•¹Í½È¡•±Á•ÈÕ¹…Ù…¥±…‰±”è€•Øì…Õ‘¥Ñ½©½ÕÉ¹…±™…±±‰…¬½¹Ñ¥¹Õ•Ìˆ°•ÉÈ¤($$%±…ÍÑÉÉ½È€ôµ•ÍÍ…”($%ô($%È¹•‰Á™!•±Á•É!•…±Ñ¡5Ô¹1½¬ ¤($%È¹•‰Á™!•±Á•É!•…±Ñ ¹M•¹Í½È¹¹…‰±•€ô™…±Í”($%È¹•‰Á™!•±Á•É!•…±Ñ ¹M•¹Í½È¹…±±‰…­I•…Í½¸€ôµ•ÍÍ…”($%È¹•‰Á™!•±Á•É!•…±Ñ¡5Ô¹U¹±½¬ ¤($%Ñ¥µ•È€èôÑ¥µ”¹9•ÝQ¥µ•È È€¨Ñ¥µ”¹M•½¹¤($%Í•±•Ðì($%…Í”€ðµÑà¹½¹” ¤è($$%Ñ¥µ•È¹MÑ½À ¤($$%É•ÑÕÉ¸($%…Í”€ðµÑ¥µ•È¹è($%ô(%ô)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤É•½É‘½±±•Ñ½ÉÉÉ½È¡½±±•Ñ½ÈÍÑÉ¥¹œ°•ÉÈ•ÉÉ½È¤ì(%¥˜•ÉÈ€ôô¹¥°ì($%É•ÑÕÉ¸(%ô(%È¹•ÉÉ½É½Õ¹Ð¹‘ Ä¤(%È¹±½•È¹AÉ¥¹Ñ˜ ‰½±±•Ñ½È•ÉÉ½È½±±•Ñ½Èô•Ì•ÉÉ½Èô•Øˆ°½±±•Ñ½È°•ÉÈ¤(%|°|€ôÈ¹©½ÕÉ¹…°¹ÁÁ•¹ ‰½±±•Ñ½È¹•ÉÉ½Èˆ°µ…ÁmÍÑÉ¥¹uÍÑÉ¥¹ì‰½±±•Ñ½Èˆè½±±•Ñ½È°€‰•ÉÉ½Èˆè•ÉÈ¹ÉÉ½È ¥ô¤)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤%¹•ÍÐ¡|½¹Ñ•áÐ¹½¹Ñ•áÐ°•Ù•¹Ðµ½‘•°¹Ù•¹Ð¤€¡muµ½‘•°¹¥¹‘¥¹œ°•ÉÉ½È¤ì(%É•ÑÕÉ¸È¹ÁÉ½•ÍÌ¡•Ù•¹Ð¤)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤ÁÉ½•ÍÌ¡•Ù•¹Ðµ½‘•°¹Ù•¹Ð¤€¡muµ½‘•°¹¥¹‘¥¹œ°•ÉÉ½È¤ì(%¥˜È¹ÁÉ½•ÍÍÉ…Á €„ô¹¥°ì($%È¹ÁÉ½•ÍÍÉ…Á ¹¹É¥  ™•Ù•¹Ð¤(%ô(%•Ù•¹Ð¹AÉ•Á…É” ¤(%•Ù•¹Ð¹•¹Ñ%€ôÈ¹™œ¹•¹Ñ%(%•Ù•¹Ð¹Q•¹…¹Ñ%€ôÈ¹™œ¹Q•¹…¹Ñ%(%¥˜•Ù•¹Ð¹ÍÍ•Ð¹!½ÍÑ¹…µ”€ôô€ˆˆì($%•Ù•¹Ð¹ÍÍ•Ð¹!½ÍÑ¹…µ”€ôÈ¹¡½ÍÑ¹…µ”(%ô(%É•‘…Ð¹Ù•¹Ð ™•Ù•¹Ð¤(%¥˜|°•ÉÈ€èôÈ¹©½ÕÉ¹…°¹ÁÁ•¹ ‰•Ù•¹Ðˆ°•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($%É•ÑÕÉ¸¹¥°°•ÉÈ(%ô(%È¹•Ù•¹Ñ½Õ¹Ð¹‘ Ä¤(%™¥¹‘¥¹Ì€èôÈ¹‘•Ñ•Ñ½È¹%¹ÍÁ•Ð¡•Ù•¹Ð¤(%™½È|°™¥¹‘¥¹œ€èôÉ…¹”™¥¹‘¥¹Ìì($%¥˜|°•ÉÈ€èôÈ¹©½ÕÉ¹…°¹ÁÁ•¹ ‰™¥¹‘¥¹œˆ°™¥¹‘¥¹œ¤ì•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸™¥¹‘¥¹Ì°•ÉÈ($%ô($%È¹™¥¹‘¥¹½Õ¹Ð¹‘ Ä¤($%•¹½‘•°|€èô©Í½¸¹5…ÉÍ¡…°¡™¥¹‘¥¹œ¤($%È¹±½•È¹AÉ¥¹Ñ˜ ‰™¥¹‘¥¹œ€•Ìˆ°•¹½‘•¤(%ô(%¥˜È¹ÑÉ…¹ÍÁ½ÉÑ=ÕÑ‰½à€„ô¹¥°ì($%¥˜•ÉÈ€èôÈ¹ÑÉ…¹ÍÁ½ÉÑ=ÕÑ‰½à¹¹ÅÕ•Õ”¡•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸™¥¹‘¥¹Ì°™µÐ¹ÉÉ½É˜ ‰ÅÕ•Õ”Ñ•±•µ•ÑÉä™½È½¹ÑÉ½°A±…¹”è€•Üˆ°•ÉÈ¤($%ô(%ô(%¥˜È¹•¹ÑÉ…°€„ô¹¥°ì($%È¹•¹ÑÉ…°¹¹ÅÕ•Õ”¡•Ù•¹Ð°™¥¹‘¥¹Ì¤(%ô(%È¹•¹ÅÕ•Õ•$¡•Ù•¹Ð°™¥¹‘¥¹Ì¤(%¥˜È¹ÁÉ½Ñ•Ñ¥½¸€„ô¹¥°ì($%½ÕÑ½µ”°É•Á½ÉÐ°•ÉÈ€èôÈ¹ÁÉ½Ñ•Ñ¥½¸¹%¹ÍÁ•ÑÙ•¹Ð¡½¹Ñ•áÐ¹	…­É½Õ¹ ¤°•Ù•¹Ð¤($%¥˜•ÉÈ€„ô¹¥°ì($$%È¹É•½É‘½±±•Ñ½ÉÉÉ½È ‰Ý¥¹‘½ÝÌµÁÉ½Ñ•Ñ¥½¸½ÁÉ½•ÍÌˆ°•ÉÈ¤($%ô•±Í”¥˜É•Á½ÉÐì($$%¥˜•ÉÈ€èôÈ¹É•½É‘AÉ½Ñ•Ñ¥½¹=ÕÑ½µ”¡½ÕÑ½µ”¤ì•ÉÈ€„ô¹¥°ì($$$%É•ÑÕÉ¸™¥¹‘¥¹Ì°•ÉÈ($$%ô($$%¥˜½ÕÑ½µ”¹¥¹‘¥¹œ€„ô¹¥°ì($$$%™¥¹‘¥¹Ì€ô…ÁÁ•¹¡™¥¹‘¥¹Ì°€©½ÕÑ½µ”¹¥¹‘¥¹œ¤($$%ô($%ô(%ô(%É•ÑÕÉ¸™¥¹‘¥¹Ì°¹¥°)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤É•½É‘AÉ½Ñ•Ñ¥½¹=ÕÑ½µ”¡½ÕÑ½µ”ÁÉ½Ñ•Ñ¥½¸¹=ÕÑ½µ”¤•ÉÉ½Èì(%¥˜½ÕÑ½µ”¹Ù•¹Ð€ôô¹¥°ì($%É•ÑÕÉ¸¹¥°(%ô(%•Ù•¹Ð€èô€©½ÕÑ½µ”¹Ù•¹Ð(%•Ù•¹Ð¹•¹Ñ%€ôÈ¹™œ¹•¹Ñ%(%•Ù•¹Ð¹Q•¹…¹Ñ%€ôÈ¹™œ¹Q•¹…¹Ñ%(%¥˜•Ù•¹Ð¹ÍÍ•Ð¹!½ÍÑ¹…µ”€ôô€ˆˆì($%•Ù•¹Ð¹ÍÍ•Ð¹!½ÍÑ¹…µ”€ôÈ¹¡½ÍÑ¹…µ”(%ô(%•Ù•¹Ð¹AÉ•Á…É” ¤(%É•‘…Ð¹Ù•¹Ð ™•Ù•¹Ð¤(%¥˜|°•ÉÈ€èôÈ¹©½ÕÉ¹…°¹ÁÁ•¹ ‰•Ù•¹Ðˆ°•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($%É•ÑÕÉ¸•ÉÈ(%ô(%È¹•Ù•¹Ñ½Õ¹Ð¹‘ Ä¤(%™¥¹‘¥¹Ì€èômuµ½‘•°¹¥¹‘¥¹íô(%¥˜½ÕÑ½µ”¹¥¹‘¥¹œ€„ô¹¥°ì($%™¥¹‘¥¹œ€èô€©½ÕÑ½µ”¹¥¹‘¥¹œ($%™¥¹‘¥¹œ¹•¹Ñ%€ôÈ¹™œ¹•¹Ñ%($%™¥¹‘¥¹œ¹Q•¹…¹Ñ%€ôÈ¹™œ¹Q•¹…¹Ñ%($%™¥¹‘¥¹œ¹ÍÍ•Ð€ô•Ù•¹Ð¹ÍÍ•Ð($%™¥¹‘¥¹œ¹Ù¥‘•¹•Ù•¹Ñ%Ì€ômuÍÑÉ¥¹í•Ù•¹Ð¹%ô($%¥˜™¥¹‘¥¹œ¹ÑÑÉ¥‰ÕÑ•Ì€ôô¹¥°ì($$%™¥¹‘¥¹œ¹ÑÑÉ¥‰ÕÑ•Ì€ôµ…ÁmÍÑÉ¥¹u¥¹Ñ•É™…•íõíô($%ô($%™¥¹‘¥¹œ¹ÑÑÉ¥‰ÕÑ•Íl‰…Ñ¥½¹Ì‰t€ô½ÕÑ½µ”¹Ñ¥½¹Ì($%¥˜|°•ÉÈ€èôÈ¹©½ÕÉ¹…°¹ÁÁ•¹ ‰™¥¹‘¥¹œˆ°™¥¹‘¥¹œ¤ì•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸•ÉÈ($%ô($%È¹™¥¹‘¥¹½Õ¹Ð¹‘ Ä¤($%™¥¹‘¥¹Ì€ô…ÁÁ•¹¡™¥¹‘¥¹Ì°™¥¹‘¥¹œ¤(%ô(%¥˜È¹ÑÉ…¹ÍÁ½ÉÑ=ÕÑ‰½à€„ô¹¥°ì($%¥˜•ÉÈ€èôÈ¹ÑÉ…¹ÍÁ½ÉÑ=ÕÑ‰½à¹¹ÅÕ•Õ”¡•Ù•¹Ð¤ì•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸•ÉÈ($%ô(%ô(%¥˜È¹•¹ÑÉ…°€„ô¹¥°ì($%È¹•¹ÑÉ…°¹¹ÅÕ•Õ”¡•Ù•¹Ð°™¥¹‘¥¹Ì¤(%ô(%É•ÑÕÉ¸¹¥°)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤•¹ÑÉ…±MÑ…ÑÕÌ ¤•¹ÑÉ…°¹!•…ÉÑ‰•…ÑMÑ…ÑÕÌì(%ÍÑ…ÑÕÌ€èôÈ¹MÑ…ÑÕÌ ¤(%É•ÑÕÉ¸•¹ÑÉ…°¹!•…ÉÑ‰•…ÑMÑ…ÑÕÍì($%•¹Ñ%è€€€€€ÍÑ…ÑÕÌ¹•¹Ñ%°($%Q•¹…¹Ñ%è€€€€ÍÑ…ÑÕÌ¹Q•¹…¹Ñ%°($%½µÁÕÑ•É9…µ”èÍÑ…ÑÕÌ¹!½ÍÑ¹…µ”°($%MÑ…ÑÕÌè€€€€€€ÍÑ…ÑÕÌ¹MÑ…ÑÕÌ°($%Ù•¹ÑÌè€€€€€€ÍÑ…ÑÕÌ¹Ù•¹ÑÌ°($%¥¹‘¥¹Ìè€€€€ÍÑ…ÑÕÌ¹¥¹‘¥¹Ì°($%ÉÉ½ÉÌè€€€€€€ÍÑ…ÑÕÌ¹ÉÉ½ÉÌ°($%EÕ•Õ••ÁÑ è€€È¹•¹ÑÉ…°¹EÕ•Õ••ÁÑ  ¤°(%ô)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤MÑ…ÑÕÌ ¤MÑ…ÑÕÌì(%Í½ÕÉ•½Õ¹Ð€èô±•¸¡È¹Ñ…¥±•ÉÌ¤€¬±•¸¡È¹¹…Ñ¥Ù•M½ÕÉ•Ì¤(%¥˜È¹¥¹Ù•¹Ñ½Éå½±±•Ñ½È€„ô¹¥°ì($%Í½ÕÉ•½Õ¹Ð¬¬(%ô(%¥˜È¹ÁÉ½•ÍÍÉ…Á €„ô¹¥°ì($%Í½ÕÉ•½Õ¹Ð¬¬(%ô(%¥˜È¹ÁÉ½•ÍÍ9•ÑÝ½É¬€„ô¹¥°ì($%Í½ÕÉ•½Õ¹Ð¬¬(%ô(%¥˜È¹•‰Á™M•¹Í½È€„ô¹¥°ñðÈ¹•‰Á™!•±Á•È€„ô¹¥°ì($%Í½ÕÉ•½Õ¹Ð¬¬(%ô(%¥˜È¹ÁÉ½Ñ•Ñ¥½¸€„ô¹¥°ì($%Í½ÕÉ•½Õ¹Ð¬¬(%ô(%Ù…È±…ÍÑ%¹Ù•¹Ñ½ÉåÐ€©Ñ¥µ”¹Q¥µ”(%¥˜±…ÍÑ9…¹¼€èôÈ¹±…ÍÑ%¹Ù•¹Ñ½Éå9…¹¼¹1½… ¤ì±…ÍÑ9…¹¼€„ô€Àì($%Ù…±Õ”€èôÑ¥µ”¹U¹¥à À°±…ÍÑ9…¹¼¤¹UQ ¤($%±…ÍÑ%¹Ù•¹Ñ½ÉåÐ€ô€™Ù…±Õ”(%ô(%Ù…È±…ÍÑQÉ…¹ÍÁ½ÉÑMÕ•ÍÍÐ€©Ñ¥µ”¹Q¥µ”(%Ù…È±…ÍÑAÉ½•ÍÍÉ…Á¡Ð€©Ñ¥µ”¹Q¥µ”(%Ù…È±…ÍÑAÉ½•ÍÍ9•ÑÝ½É­Ð€©Ñ¥µ”¹Q¥µ”(%¥˜±…ÍÑ9…¹¼€èôÈ¹±…ÍÑAÉ½•ÍÍÉ…Á¡9…¹¼¹1½… ¤ì±…ÍÑ9…¹¼€„ô€Àì($%Ù…±Õ”€èôÑ¥µ”¹U¹¥à À°±…ÍÑ9…¹¼¤¹UQ ¤($%±…ÍÑAÉ½•ÍÍÉ…Á¡Ð€ô€™Ù…±Õ”(%ô(%¥˜±…ÍÑ9…¹¼€èôÈ¹±…ÍÑAÉ½•ÍÍ9•ÑÝ½É­9…¹¼¹1½… ¤ì±…ÍÑ9…¹¼€„ô€Àì($%Ù…±Õ”€èôÑ¥µ”¹U¹¥à À°±…ÍÑ9…¹¼¤¹UQ ¤($%±…ÍÑAÉ½•ÍÍ9•ÑÝ½É­Ð€ô€™Ù…±Õ”(%ô(%¥˜±…ÍÑ9…¹¼€èôÈ¹±…ÍÑQÉ…¹ÍÁ½ÉÑMÕ•ÍÍ9…¹¼¹1½… ¤ì±…ÍÑ9…¹¼€„ô€Àì($%Ù…±Õ”€èôÑ¥µ”¹U¹¥à À°±…ÍÑ9…¹¼¤¹UQ ¤($%±…ÍÑQÉ…¹ÍÁ½ÉÑMÕ•ÍÍÐ€ô€™Ù…±Õ”(%ô(%Ù…È±…ÍÑ•ÉÑ¥™¥…Ñ•I•¹•ÝÐ€©Ñ¥µ”¹Q¥µ”(%¥˜±…ÍÑ9…¹¼€èôÈ¹±…ÍÑ•ÉÑ¥™¥…Ñ•I•¹•Ý9…¹¼¹1½… ¤ì±…ÍÑ9…¹¼€„ô€Àì($%Ù…±Õ”€èôÑ¥µ”¹U¹¥à À°±…ÍÑ9…¹¼¤¹UQ ¤($%±…ÍÑ•ÉÑ¥™¥…Ñ•I•¹•ÝÐ€ô€™Ù…±Õ”(%ô(%Ù…È•ÉÑ¥™¥…Ñ•áÁ¥É•ÍÐ€©Ñ¥µ”¹Q¥µ”(%¥˜È¹™œ¹QÉ…¹ÍÁ½ÉÐ¹¹…‰±•ì($%¥˜•áÁ¥Éä°•ÉÈ€èô•¹É½±±µ•¹Ð¹•ÉÑ¥™¥…Ñ•áÁ¥Éä¡È¹™œ¹QÉ…¹ÍÁ½ÉÐ¹•ÉÑ¥±”¤ì•ÉÈ€ôô¹¥°ì($$%Ù…±Õ”€èô•áÁ¥Éä¹UQ ¤($$%•ÉÑ¥™¥…Ñ•áÁ¥É•ÍÐ€ô€™Ù…±Õ”($%ô(%ô(%ÑÉ…¹ÍÁ½ÉÑMÑ…ÑÌ€èôÑÉ…¹ÍÁ½ÉÐ¹=ÕÑ‰½áMÑ…ÑÍíô(%¥˜È¹ÑÉ…¹ÍÁ½ÉÑ=ÕÑ‰½à€„ô¹¥°ì($%¥˜ÍÑ…ÑÌ°•ÉÈ€èôÈ¹ÑÉ…¹ÍÁ½ÉÑ=ÕÑ‰½à¹MÑ…ÑÌ ¤ì•ÉÈ€ôô¹¥°ì($$%ÑÉ…¹ÍÁ½ÉÑMÑ…ÑÌ€ôÍÑ…ÑÌ($%ô(%ô(%…Õ‘¥ÑMÑ…ÑÌ€èô¹…Ñ¥Ù”¹Õ‘¥ÑÍÍ•µ‰±åMÑ…ÑÍíô(%™½È|°Í½ÕÉ”€èôÉ…¹”È¹¹…Ñ¥Ù•M½ÕÉ•Ìì($%ÁÉ½Ù¥‘•È°½¬€èôÍ½ÕÉ”¸¡¥¹Ñ•É™…”ì($$%ÍÍ•µ‰±åMÑ…ÑÌ ¤¹…Ñ¥Ù”¹Õ‘¥ÑÍÍ•µ‰±åMÑ…ÑÌ($%ô¤($%¥˜€…½¬ì($$%½¹Ñ¥¹Õ”($%ô($%ÍÑ…ÑÌ€èôÁÉ½Ù¥‘•È¹ÍÍ•µ‰±åMÑ…ÑÌ ¤($%…Õ‘¥ÑMÑ…ÑÌ¹Ñ¥Ù•M•É¥…±Ì€¬ôÍÑ…ÑÌ¹Ñ¥Ù•M•É¥…±Ì($%…Õ‘¥ÑMÑ…ÑÌ¹ÍÍ•µ‰±•‘Ù•¹ÑÌ€¬ôÍÑ…ÑÌ¹ÍÍ•µ‰±•‘Ù•¹ÑÌ($%…Õ‘¥ÑMÑ…ÑÌ¹%¹½µÁ±•Ñ•ÍÍ•µ‰±¥•Ì€¬ôÍÑ…ÑÌ¹%¹½µÁ±•Ñ•ÍÍ•µ‰±¥•Ì($%…Õ‘¥ÑMÑ…ÑÌ¹É½ÁÁ•‘I•½É‘Ì€¬ôÍÑ…ÑÌ¹É½ÁÁ•‘I•½É‘Ì(%ô(%ÁÉ½•ÍÍÉ…Á¡MÑ…ÑÌ€èôÁÉ½•ÍÍÉ…Á ¹MÑ…ÑÍíô(%¥˜È¹ÁÉ½•ÍÍÉ…Á €„ô¹¥°ì($%ÁÉ½•ÍÍÉ…Á¡MÑ…ÑÌ€ôÈ¹ÁÉ½•ÍÍÉ…Á ¹MÑ…ÑÌ ¤(%ô(%ÁÉ½•ÍÍ9•ÑÝ½É­MÑ…ÑÌ€èô¹•ÑÝ½É­¥¹Ù•¹Ñ½Éä¹MÑ…ÑÍíô(%¥˜È¹ÁÉ½•ÍÍ9•ÑÝ½É¬€„ô¹¥°ì($%ÁÉ½•ÍÍ9•ÑÝ½É­MÑ…ÑÌ€ôÈ¹ÁÉ½•ÍÍ9•ÑÝ½É¬¹MÑ…ÑÌ ¤(%ô(%•‰Á™!•…±Ñ €èô•‰Á™Í•¹Í½È¹!•…±Ñ¡íô(%•‰Á™!•±Á•ÉEÕ•Õ•1½ÍÌ€èôÕ¥¹ÐØÐ À¤(%¥˜È¹•‰Á™M•¹Í½È€„ô¹¥°ì($%•‰Á™!•…±Ñ €ôÈ¹•‰Á™M•¹Í½È¹!•…±Ñ  ¤(%ô•±Í”¥˜È¹•‰Á™!•±Á•È€„ô¹¥°ì($%È¹•‰Á™!•±Á•É!•…±Ñ¡5Ô¹I1½¬ ¤($%•‰Á™!•…±Ñ €ôÈ¹•‰Á™!•±Á•É!•…±Ñ ¹M•¹Í½È($%•‰Á™!•±Á•ÉEÕ•Õ•1½ÍÌ€ôÈ¹•‰Á™!•±Á•É!•…±Ñ ¹EÕ•Õ•É½ÁÁ•($%È¹•‰Á™!•±Á•É!•…±Ñ¡5Ô¹IU¹±½¬ ¤(%ô•±Í”¥˜È¹•‰Á™…±±‰…­I•…Í½¸€„ô€ˆˆì($%•‰Á™!•…±Ñ ¹…±±‰…­I•…Í½¸€ôÈ¹•‰Á™…±±‰…­I•…Í½¸(%ô(%Ù…È•‰Á™1…ÍÑÙ•¹ÑÐ€©Ñ¥µ”¹Q¥µ”(%¥˜€…•‰Á™!•…±Ñ ¹1…ÍÑÙ•¹ÑÐ¹%Íi•É¼ ¤ì($%Ù…±Õ”€èô•‰Á™!•…±Ñ ¹1…ÍÑÙ•¹ÑÐ¹UQ ¤($%•‰Á™1…ÍÑÙ•¹ÑÐ€ô€™Ù…±Õ”(%ô(%ÍÑ…ÑÕÌ€èôMÑ…ÑÕÍì($%MÑ…ÑÕÌè€€€€€€€€€€€€€€€€€€€‰ÉÕ¹¹¥¹œˆ°($%•¹Ñ%è€€€€€€€€€€€€€€€€€È¹™œ¹•¹Ñ%°($%Q•¹…¹Ñ%è€€€€€€€€€€€€€€€€È¹™œ¹Q•¹…¹Ñ%°($%!½ÍÑ¹…µ”è€€€€€€€€€€€€€€€€È¹¡½ÍÑ¹…µ”°($%MÑ…ÉÑ•‘Ðè€€€€€€€€€€€€€€€È¹ÍÑ…ÉÑ•‘Ð°($%UÁÑ¥µ”è€€€€€€€€€€€€€€€€€€Ñ¥µ”¹M¥¹”¡È¹ÍÑ…ÉÑ•‘Ð¤¹I½Õ¹¡Ñ¥µ”¹M•½¹¤¹MÑÉ¥¹œ ¤°($%Ù•¹ÑÌè€€€€€€€€€€€€€€€€€€È¹•Ù•¹Ñ½Õ¹Ð¹1½… ¤°($%¥¹‘¥¹Ìè€€€€€€€€€€€€€€€€È¹™¥¹‘¥¹½Õ¹Ð¹1½… ¤°($%ÉÉ½ÉÌè€€€€€€€€€€€€€€€€€€È¹•ÉÉ½É½Õ¹Ð¹1½… ¤°($%M½ÕÉ•Ìè€€€€€€€€€€€€€€€€€Í½ÕÉ•½Õ¹Ð°($%¥±•M½ÕÉ•Ìè€€€€€€€€€€€€€±•¸¡È¹Ñ…¥±•ÉÌ¤°($%9…Ñ¥Ù•M½ÕÉ•Ìè€€€€€€€€€€€±•¸¡È¹¹…Ñ¥Ù•M½ÕÉ•Ì¤°($%9…Ñ¥Ù•Ù•¹ÑÌè€€€€€€€€€€€€È¹¹…Ñ¥Ù•Ù•¹Ñ½Õ¹Ð¹1½… ¤°($%Õ‘¥ÑÑ¥Ù•M•É¥…±Ìè€€€€€€…Õ‘¥ÑMÑ…ÑÌ¹Ñ¥Ù•M•É¥…±Ì°($%Õ‘¥ÑÍÍ•µ‰±•‘Ù•¹ÑÌè€€€€…Õ‘¥ÑMÑ…ÑÌ¹ÍÍ•µ‰±•‘Ù•¹ÑÌ°($%Õ‘¥Ñ%¹½µÁ±•Ñ•É½ÕÁÌè€€€…Õ‘¥ÑMÑ…ÑÌ¹%¹½µÁ±•Ñ•ÍÍ•µ‰±¥•Ì°($%Õ‘¥ÑÉ½ÁÁ•‘I•½É‘Ìè€€€€€…Õ‘¥ÑMÑ…ÑÌ¹É½ÁÁ•‘I•½É‘Ì°($%%¹…‰±•è€€€€€€€€€€€€€€€È¹™œ¹$¹¹…‰±•°($%$è€€€€€€€€€€€€€€€€€€€€€€È¹%MÑ…ÑÕÌ ¤°($%%¹Ù•¹Ñ½Éå¹…‰±•è€€€€€€€€È¹¥¹Ù•¹Ñ½Éå½±±•Ñ½È€„ô¹¥°°($%%¹Ù•¹Ñ½ÉåIÕ¹Ìè€€€€€€€€€€€È¹¥¹Ù•¹Ñ½Éå½Õ¹Ð¹1½… ¤°($%AÉ½•ÍÍÉ…Á¡¹…‰±•è€€€€€È¹ÁÉ½•ÍÍÉ…Á €„ô¹¥°°($%AÉ½•ÍÍÉ…Á¡Ù•¹ÑÌè€€€€€€È¹ÁÉ½•ÍÍÉ…Á¡Ù•¹Ñ½Õ¹Ð¹1½… ¤°($%AÉ½•ÍÍÉ…Á¡Ñ¥Ù”è€€€€€€ÁÉ½•ÍÍÉ…Á¡MÑ…ÑÌ¹Ñ¥Ù•AÉ½•ÍÍ•Ì°($%AÉ½•ÍÍÉ…Á¡á¥Ñ•è€€€€€€ÁÉ½•ÍÍÉ…Á¡MÑ…ÑÌ¹á¥Ñ•‘AÉ½•ÍÍ•Ì°($%AÉ½•ÍÍÉ…Á¡I•½¹¥±•Ìè€€ÁÉ½•ÍÍÉ…Á¡MÑ…ÑÌ¹I•½¹¥±¥…Ñ¥½¹Ì°($%1…ÍÑAÉ½•ÍÍÉ…Á¡Ðè€€€€€€±…ÍÑAÉ½•ÍÍÉ…Á¡Ð°($%AÉ½•ÍÍ9•ÑÝ½É­¹…‰±•è€€€È¹ÁÉ½•ÍÍ9•ÑÝ½É¬€„ô¹¥°°($%AÉ½•ÍÍ9•ÑÝ½É­Ù•¹ÑÌè€€€€È¹ÁÉ½•ÍÍ9•ÑÝ½É­Ù•¹Ñ½Õ¹Ð¹1½… ¤°($%AÉ½•ÍÍ9•ÑÝ½É­M½­•ÑÌè€€€ÁÉ½•ÍÍ9•ÑÝ½É­MÑ…ÑÌ¹-¹½Ý¹M½­•ÑÌ°($%AÉ½•ÍÍ9•ÑÝ½É­M…¹Ìè€€€€€ÁÉ½•ÍÍ9•ÑÝ½É­MÑ…ÑÌ¹M…¹Ì°($%AÉ½•ÍÍ9•ÑÝ½É­]…É¹¥¹Ìè€€ÁÉ½•ÍÍ9•ÑÝ½É­MÑ…ÑÌ¹]…É¹¥¹Ì°($%1…ÍÑAÉ½•ÍÍ9•ÑÝ½É­Ðè€€€€±…ÍÑAÉ½•ÍÍ9•ÑÝ½É­Ð°($%	AM•¹Í½É¹…‰±•è€€€€€€€•‰Á™!•…±Ñ ¹¹…‰±•°($%	AÙ•¹ÑÌè€€€€€€€€€€€€€€È¹•‰Á™Ù•¹Ñ½Õ¹Ð¹1½… ¤°($%	A1½…‘•‘AÉ½É…µÌè€€€€€€•‰Á™!•…±Ñ ¹1½…‘•‘AÉ½É…µÌ°($%	AÑÑ…¡•‘!½½­Ìè€€€€€€€•‰Á™!•…±Ñ ¹ÑÑ…¡•‘!½½­Ì°($%	AI¥¹	Õ™™•É1½ÍÌè€€€€€€•‰Á™!•…±Ñ ¹I¥¹	Õ™™•É1½ÍÌ°($%	AA…ÉÍ•ÉÉ½ÉÌè€€€€€€€€€•‰Á™!•…±Ñ ¹A…ÉÍ•ÉÉ½ÉÌ°($%	AÙ•¹ÑÍA•ÉM•½¹è€€€€€•‰Á™!•…±Ñ ¹Ù•¹ÑÍA•ÉM•½¹°($%	AQ¡É½ÑÑ±•‘Ù•¹ÑÌè€€€€€•‰Á™!•…±Ñ ¹Q¡É½ÑÑ±•‘Ù•¹ÑÌ°($%	A1…ÍÑÙ•¹ÑÐè€€€€€€€€€•‰Á™1…ÍÑÙ•¹ÑÐ°($%	A…±±‰…­I•…Í½¸è€€€€€€•‰Á™!•…±Ñ ¹…±±‰…­I•…Í½¸°($%	A!•±Á•ÉEÕ•Õ•1½ÍÌè€€€€€•‰Á™!•±Á•ÉEÕ•Õ•1½ÍÌ°($%1…ÍÑ%¹Ù•¹Ñ½ÉåÐè€€€€€€€€€±…ÍÑ%¹Ù•¹Ñ½ÉåÐ°($%%¹Ù•¹Ñ½Éå%¹Ñ•ÉÙ…°è€€€€€€€È¹™œ¹%¹Ù•¹Ñ½Éä¹%¹Ñ•ÉÙ…°°($%QÉ…¹ÍÁ½ÉÑ¹…‰±•è€€€€€€€€È¹ÑÉ…¹ÍÁ½ÉÑM•¹‘•È€„ô¹¥°°($%QÉ…¹ÍÁ½ÉÑA•¹‘¥¹œè€€€€€€€€ÑÉ…¹ÍÁ½ÉÑMÑ…ÑÌ¹A•¹‘¥¹œ°($%QÉ…¹ÍÁ½ÉÑA•¹‘¥¹	åÑ•Ìè€€€ÑÉ…¹ÍÁ½ÉÑMÑ…ÑÌ¹A•¹‘¥¹	åÑ•Ì°($%QÉ…¹ÍÁ½ÉÑ•…‘1•ÑÑ•Èè€€€€€ÑÉ…¹ÍÁ½ÉÑMÑ…ÑÌ¹•…‘1•ÑÑ•È°($%QÉ…¹ÍÁ½ÉÑ•…‘1•ÑÑ•É	åÑ•ÌèÑÉ…¹ÍÁ½ÉÑMÑ…ÑÌ¹•…‘1•ÑÑ•É	Ñä°($%QÉ…¹ÍÁ½ÉÑM•¹Ðè€€€€€€€€€€€È¹ÑÉ…¹ÍÁ½ÉÑM•¹Ñ½Õ¹Ð¹1½… ¤°($%QÉ…¹ÍÁ½ÉÑÉÉ½ÉÌè€€€€€€€€€È¹ÑÉ…¹ÍÁ½ÉÑÉÉ½É½Õ¹Ð¹1½… ¤°($%QÉ…¹ÍÁ½ÉÑ	…­ÁÉ•ÍÍÕÉ”è€€€È¹ÑÉ…¹ÍÁ½ÉÑ=ÕÑ‰½à€„ô¹¥°€˜˜ÑÉ…¹ÍÁ½ÉÑMÑ…ÑÌ¹A•¹‘¥¹œ€øôÈ¹™œ¹QÉ…¹ÍÁ½ÉÐ¹A•¹‘¥¹]…É¸°($%1…ÍÑQÉ…¹ÍÁ½ÉÑMÕ•ÍÍÐè€€±…ÍÑQÉ…¹ÍÁ½ÉÑMÕ•ÍÍÐ°($%•ÉÑ¥™¥…Ñ•ÕÑ½I•¹•Üè€€€€È¹™œ¹QÉ…¹ÍÁ½ÉÐ¹¹…‰±•€˜˜È¹™œ¹QÉ…¹ÍÁ½ÉÐ¹ÕÑ½I•¹•Ü°($%•ÉÑ¥™¥…Ñ•áÁ¥É•ÍÐè€€€€•ÉÑ¥™¥…Ñ•áÁ¥É•ÍÐ°($%•ÉÑ¥™¥…Ñ•I•¹•Ý…±Ìè€€€€€È¹•ÉÑ¥™¥…Ñ•I•¹•Ý…±½Õ¹Ð¹1½… ¤°($%1…ÍÑ•ÉÑ¥™¥…Ñ•I•¹•ÝÐè€€±…ÍÑ•ÉÑ¥™¥…Ñ•I•¹•ÝÐ°($%	Õ¥±è€€€€€€€€€€€€€€€€€€€‰Õ¥±‘¥¹™¼¹ÕÉÉ•¹Ð ¤°($%M…™•Ñå5½‘•°è€€€€€€€€€€€€€€‰$µ…ä…¹…±åé”•Ù¥‘•¹”ì½¹±äÑåÁ•Ñ½½±Ì‰•¡¥¹‘•Ñ•Éµ¥¹¥ÍÑ¥ŒÁ½±¥äµ…ä…Ðˆ°(%ô(%¥˜È¹ÁÉ½Ñ•Ñ¥½¸€„ô¹¥°ì($%ÁÉ½Ñ•Ñ¥½¹MÑ…ÑÕÌ€èôÈ¹ÁÉ½Ñ•Ñ¥½¸¹MÑ…ÑÕÌ ¤($%ÍÑ…ÑÕÌ¹AÉ½Ñ•Ñ¥½¸€ô€™ÁÉ½Ñ•Ñ¥½¹MÑ…ÑÕÌ(%ô(%É•ÑÕÉ¸ÍÑ…ÑÕÌ)ô()™Õ¹Œ€¡È€©IÕ¹Ñ¥µ”¤±½Í” ¤•ÉÉ½Èì(%É•ÑÕÉ¸È¹©½ÕÉ¹…°¹±½Í” ¤)ô
+				runtime.ebpfFallbackReason = err.Error()
+				logger.Printf("Linux eBPF sensor unavailable: %v; auditd/journald fallback continues", err)
+			} else {
+				runtime.ebpfSensor = sensor
+			}
+		}
+	}
+	if cfg.Transport.Enabled {
+		outbox, err := transport.OpenOutbox(cfg.DataDir)
+		if err != nil {
+			_ = journal.Close()
+			return nil, fmt.Errorf("initialize telemetry outbox: %w", err)
+		}
+		timeout, err := time.ParseDuration(cfg.Transport.Timeout)
+		if err != nil {
+			_ = journal.Close()
+			return nil, fmt.Errorf("initialize telemetry timeout: %w", err)
+		}
+		flushInterval, err := time.ParseDuration(cfg.Transport.FlushInterval)
+		if err != nil {
+			_ = journal.Close()
+			return nil, fmt.Errorf("initialize telemetry flush interval: %w", err)
+		}
+		renewBefore := time.Duration(0)
+		renewCheckInterval := time.Duration(0)
+		if cfg.Transport.AutoRenew {
+			renewBefore, err = time.ParseDuration(cfg.Transport.RenewBefore)
+			if err != nil {
+				_ = journal.Close()
+				return nil, fmt.Errorf("initialize certificate renew-before interval: %w", err)
+			}
+			renewCheckInterval, err = time.ParseDuration(cfg.Transport.RenewCheckInterval)
+			if err != nil {
+				_ = journal.Close()
+				return nil, fmt.Errorf("initialize certificate renewal check interval: %w", err)
+			}
+		}
+		sender, err := transport.NewSender(outbox, transport.SenderOptions{
+			Endpoint:           cfg.Transport.Endpoint,
+			AgentID:            cfg.AgentID,
+			TenantID:           cfg.TenantID,
+			CertFile:           cfg.Transport.CertFile,
+			KeyFile:            cfg.Transport.KeyFile,
+			CAFile:             cfg.Transport.CAFile,
+			ServerName:         cfg.Transport.ServerName,
+			Timeout:            timeout,
+			AutoRenew:          cfg.Transport.AutoRenew,
+			RenewalEndpoint:    cfg.Transport.RenewalEndpoint,
+			RenewBefore:        renewBefore,
+			RenewCheckInterval: renewCheckInterval,
+		})
+		if err != nil {
+			_ = journal.Close()
+			return nil, fmt.Errorf("initialize telemetry sender: %w", err)
+		}
+		runtime.transportOutbox = outbox
+		runtime.transportSender = sender
+		runtime.transportFlushInterval = flushInterval
+	}
+	if cfg.Central.Enabled {
+		client, err := central.New(cfg.Central, cfg.AgentID, cfg.TenantID, hostname, logger)
+		if err != nil {
+			_ = journal.Close()
+			return nil, fmt.Errorf("initialize Central transport: %w", err)
+		}
+		runtime.central = client
+	}
+	protectionController, err := protection.NewController(cfg, logger)
+	if err != nil {
+		_ = journal.Close()
+		return nil, fmt.Errorf("initialize Windows protection: %w", err)
+	}
+	runtime.protection = protectionController
+	return runtime, nil
+}
+
+func (r *Runtime) Run(ctx context.Context) error {
+	if r.ebpfSensor != nil {
+		defer func() { _ = r.ebpfSensor.Close() }()
+	}
+	startup := map[string]interface{}{
+		"agent_id":                r.cfg.AgentID,
+		"tenant_id":               r.cfg.TenantID,
+		"hostname":                r.hostname,
+		"file_sources":            len(r.tailers),
+		"native_sources":          len(r.nativeSources),
+		"inventory_enabled":       r.inventoryCollector != nil,
+		"signed_baseline_enabled": r.baselineStore != nil,
+		"inventory_interval":      r.cfg.Inventory.Interval,
+		"process_graph_enabled":   r.processGraph != nil,
+		"process_network_enabled": r.processNetwork != nil,
+		"ebpf_sensor_configured":  r.ebpfSensor != nil || r.ebpfHelper != nil,
+		"transport_enabled":       r.transportSender != nil,
+		"central_enabled":         r.central != nil,
+		"certificate_auto_renew":  r.cfg.Transport.AutoRenew,
+		"build":                   buildinfo.Current(),
+		"ai_enabled":              r.cfg.AI.Enabled,
+		"ai_auto_analyze":         r.aiQueue != nil,
+		"protection_enabled":      r.protection != nil,
+		"safety_model":            "untrusted evidence -> deterministic policy gate -> typed tools",
+	}
+	if _, err := r.journal.Append("agent.start", startup); err != nil {
+		return err
+	}
+	r.logger.Printf("agent started id=%s file_sources=%d native_sources=%d inventory_enabled=%t transport_enabled=%t central_enabled=%t ai_enabled=%t", r.cfg.AgentID, len(r.tailers), len(r.nativeSources), r.inventoryCollector != nil, r.transportSender != nil, r.central != nil, r.cfg.AI.Enabled)
+
+	errCh := make(chan error, 1)
+	if r.cfg.API.Enabled {
+		token, err := api.EnsureToken(r.cfg.API.TokenFile)
+		if err != nil {
+			return err
+		}
+		server := api.New(r.cfg.API.Listen, token, func() interface{} { return r.Status() }, r.Ingest)
+		if r.aiClient != nil {
+			if err := server.AddReadOnly("/v1/ai", func() interface{} { return r.AIStatus() }); err != nil {
+				return err
+			}
+		}
+		if r.protection != nil {
+			if err := server.AddReadOnly("/v1/protection", func() interface{} { return r.protection.Status() }); err != nil {
+				return err
+			}
+			if err := server.AddCommand("/v1/protection/scan", func(_ context.Context, body json.RawMessage) (interface{}, error) {
+				var request struct {
+					Profile string `json:"profile"`
+				}
+				decoder := json.NewDecoder(bytes.NewReader(body))
+				decoder.DisallowUnknownFields()
+				if err := decoder.Decode(&request); err != nil {
+					return nil, fmt.Errorf("invalid scan request: %w", err)
+				}
+				if request.Profile == "" {
+					request.Profile = "quick"
+				}
+				id, err := r.protection.StartScan(ctx, request.Profile, func(outcome protection.Outcome) {
+					if recordErr := r.recordProtectionOutcome(outcome); recordErr != nil {
+						r.recordCollectorError("windows-protection", recordErr)
+					}
+				})
+				if err != nil {
+					return nil, err
+				}
+				return map[string]interface{}{"status": "accepted", "scan_id": id, "profile": request.Profile}, nil
+			}); err != nil {
+				return err
+			}
+		}
+		go func() { errCh <- server.Run(ctx) }()
+		r.logger.Printf("local API listening on %s; only typed protection controls are exposed", r.cfg.API.Listen)
+	}
+	if r.transportSender != nil {
+		go r.runTransport(ctx)
+	}
+	if r.central != nil {
+		go func() {
+			if err := r.central.Run(ctx, r.centralStatus); err != nil {
+				r.logger.Printf("Central transport stopped: %v", err)
+			}
+		}()
+		r.logger.Printf("Central transport enabled url=%s", r.cfg.Central.URL)
+	}
+	if r.aiQueue != nil {
+		go r.runAI(ctx)
+		r.logger.Printf("llm operation=worker status=started model=%s minimum_severity=%s queue_size=%d min_interval=%s audit_log=%s", r.cfg.AI.Model, r.cfg.AI.MinimumSeverity, cap(r.aiQueue), r.cfg.AI.MinInterval, r.cfg.AI.AuditLogFile)
+	}
+	if r.protection != nil {
+		go r.protection.Run(ctx, func(outcome protection.Outcome) {
+			if err := r.recordProtectionOutcome(outcome); err != nil {
+				r.recordCollectorError("windows-protection", err)
+			}
+		})
+	}
+
+	r.collectProcessGraph(ctx, true)
+	r.collectProcessNetwork(ctx, true)
+	r.startEBPFSensor(ctx)
+	r.collectInventory(ctx, true)
+	r.poll(ctx)
+	ticker := time.NewTicker(r.cfg.PollInterval)
+	defer ticker.Stop()
+	for {
+		select {
+		case <-ctx.Done():
+			_, _ = r.journal.Append("agent.stop", map[string]interface{}{"reason": ctx.Err().Error(), "status": r.Status()})
+			return nil
+		case err := <-errCh:
+			if err != nil {
+				return fmt.Errorf("local API: %w", err)
+			}
+		case <-ticker.C:
+			r.poll(ctx)
+			r.collectProcessGraph(ctx, false)
+			r.collectProcessNetwork(ctx, false)
+			r.collectInventory(ctx, false)
+		}
+	}
+}
+
+func (r *Runtime) runTransport(ctx context.Context) {
+	delay := time.Duration(0)
+	lastError := ""
+	backpressureLogged := false
+	for {
+		if delay > 0 {
+			timer := time.NewTimer(delay)
+			select {
+			case <-ctx.Done():
+				timer.Stop()
+				return
+			case <-timer.C:
+			}
+		} else if ctx.Err() != nil {
+			return
+		}
+
+		result, err := r.transportSender.Flush(ctx, r.cfg.Transport.BatchSize)
+		r.transportSentCount.Add(uint64(result.Sent))
+		r.transportDeadLetterCount.Add(uint64(result.DeadLetter))
+		if result.CertificateRenewed {
+			r.certificateRenewalCount.Add(1)
+			r.lastCertificateRenewNano.Store(time.Now().UTC().UnixNano())
+			r.logger.Printf("Agent client certificate renewed expires_at=%v", result.CertificateExpiresAt)
+			_, _ = r.journal.Append("identity.certificate_renewed", map[string]interface{}{
+				"expires_at": result.CertificateExpiresAt,
+			})
+		}
+		if result.Sent > 0 {
+			r.lastTransportSuccessNano.Store(time.Now().UTC().UnixNano())
+		}
+		if result.DeadLetter > 0 {
+			_, _ = r.journal.Append("transport.dead_letter", map[string]interface{}{
+				"count": result.DeadLetter,
+			})
+		}
+		if err != nil && !errors.Is(err, context.Canceled) {
+			r.transportErrorCount.Add(1)
+			r.errorCount.Add(1)
+			message := err.Error()
+			if message != lastError {
+				r.logger.Printf("telemetry transport error: %v", err)
+				_, _ = r.journal.Append("transport.error", map[string]string{"error": message})
+				lastError = message
+			}
+			if delay <= 0 {
+				delay = r.transportFlushInterval
+			}
+			delay *= 2
+			if delay > time.Minute {
+				delay = time.Minute
+			}
+		} else {
+			if lastError != "" {
+				r.logger.Printf("telemetry transport recovered")
+				_, _ = r.journal.Append("transport.recovered", map[string]interface{}{"sent": result.Sent})
+				lastError = ""
+			}
+			delay = r.transportFlushInterval
+		}
+
+		if stats, statsErr := r.transportOutbox.Stats(); statsErr == nil {
+			backpressure := stats.Pending >= r.cfg.Transport.PendingWarn
+			if backpressure && !backpressureLogged {
+				r.logger.Printf("telemetry outbox backpressure pending=%d bytes=%d", stats.Pending, stats.PendingBytes)
+				_, _ = r.journal.Append("transport.backpressure", map[string]interface{}{
+					"pending": stats.Pending,
+					"bytes":   stats.PendingBytes,
+				})
+			}
+			if !backpressure && backpressureLogged {
+				_, _ = r.journal.Append("transport.backpressure_cleared", map[string]interface{}{
+					"pending": stats.Pending,
+				})
+			}
+			backpressureLogged = backpressure
+		}
+	}
+}
+
+func (r *Runtime) poll(ctx context.Context) {
+	r.pollFiles(ctx)
+	r.pollNative(ctx)
+}
+
+func (r *Runtime) pollFiles(ctx context.Context) {
+	for _, tailer := range r.tailers {
+		if err := ctx.Err(); err != nil {
+			return
+		}
+		events, errs := tailer.Poll()
+		for _, err := range errs {
+			r.recordCollectorError("file-tail", err)
+		}
+		for _, event := range events {
+			if _, err := r.process(event); err != nil {
+				r.errorCount.Add(1)
+				r.logger.Printf("event processing error: %v", err)
+			}
+		}
+	}
+}
+
+func (r *Runtime) pollNative(ctx context.Context) {
+	for _, source := range r.nativeSources {
+		if err := ctx.Err(); err != nil {
+			return
+		}
+		batch, errs := source.Poll(ctx)
+		for _, err := range errs {
+			r.recordCollectorError(source.Kind()+"/"+source.ID(), err)
+		}
+		processed := true
+		for _, event := range batch.Events {
+			if _, err := r.process(event); err != nil {
+				processed = false
+				r.recordCollectorError(source.Kind()+"/"+source.ID(), err)
+				break
+			}
+			r.nativeEventCount.Add(1)
+		}
+		if processed {
+			if err := batch.Acknowledge(); err != nil {
+				r.recordCollectorError(source.Kind()+"/"+source.ID()+"/cursor", err)
+			}
+		}
+	}
+}
+
+func (r *Runtime) collectInventory(ctx context.Context, force bool) {
+	if r.inventoryCollector == nil || ctx.Err() != nil {
+		return
+	}
+	lastNano := r.lastInventoryNano.Load()
+	if !force && lastNano != 0 && time.Since(time.Unix(0, lastNano)) < r.inventoryInterval {
+		return
+	}
+	event, err := r.inventoryCollector.Event(ctx)
+	if err != nil {
+		r.recordCollectorError("native-inventory", err)
+		return
+	}
+	redact.Event(&event)
+	if _, err := r.process(event); err != nil {
+		r.recordCollectorError("native-inventory", err)
+		return
+	}
+	if r.baselineStore != nil {
+		snapshot, err := baseline.SnapshotFromEvent(event)
+		if err != nil {
+			r.recordCollectorError("inventory-baseline", err)
+			return
+		}
+		if err := r.baselineStore.Save(snapshot); err != nil {
+			r.recordCollectorError("inventory-baseline", err)
+			return
+		}
+	}
+	collectedAt := time.Now().UTC()
+	r.lastInventoryNano.Store(collectedAt.UnixNano())
+	r.inventoryCount.Add(1)
+	r.logger.Printf("asset inventory collected processes=%t services=%t listeners=%t software=%t", r.cfg.Inventory.IncludeProcesses, r.cfg.Inventory.IncludeServices, r.cfg.Inventory.IncludeListeners, r.cfg.Inventory.IncludeSoftware)
+}
+
+func (r *Runtime) collectProcessGraph(ctx context.Context, force bool) {
+	if r.processGraph == nil || ctx.Err() != nil {
+		return
+	}
+	lastNano := r.lastProcessGraphNano.Load()
+	if !force && lastNano != 0 && time.Since(time.Unix(0, lastNano)) < r.processGraphInterval {
+		return
+	}
+	batch, err := r.processGraph.Reconcile(ctx)
+	if err != nil {
+		r.recordCollectorError("linux-process-graph", err)
+		return
+	}
+	for _, event := range batch.Events {
+		if _, err := r.process(event); err != nil {
+			r.recordCollectorError("linux-process-graph", err)
+			return
+		}
+		r.processGraphEventCount.Add(1)
+	}
+	if err := batch.Acknowledge(); err != nil {
+		r.recordCollectorError("linux-process-graph/checkpoint", err)
+		return
+	}
+	r.lastProcessGraphNano.Store(time.Now().UTC().UnixNano())
+}
+
+func (r *Runtime) collectProcessNetwork(ctx context.Context, force bool) {
+	if r.processNetwork == nil || ctx.Err() != nil {
+		return
+	}
+	lastNano := r.lastProcessNetworkNano.Load()
+	if !force && lastNano != 0 && time.Since(time.Unix(0, lastNano)) < r.processNetworkInterval {
+		return
+	}
+	batch, err := r.processNetwork.Reconcile(ctx)
+	if err != nil {
+		r.recordCollectorError("linux-process-network", err)
+		return
+	}
+	for _, event := range batch.Events {
+		if _, err := r.process(event); err != nil {
+			r.recordCollectorError("linux-process-network", err)
+			return
+		}
+		r.processNetworkEventCount.Add(1)
+	}
+	if err := batch.Acknowledge(); err != nil {
+		r.recordCollectorError("linux-process-network/checkpoint", err)
+		return
+	}
+	r.lastProcessNetworkNano.Store(time.Now().UTC().UnixNano())
+}
+
+func (r *Runtime) startEBPFSensor(ctx context.Context) {
+	if r.ebpfHelper != nil {
+		go r.runSensorHelper(ctx)
+		return
+	}
+	if r.ebpfSensor == nil {
+		return
+	}
+	if err := r.ebpfSensor.Start(ctx, func(event model.Event) error {
+		if _, err := r.process(event); err != nil {
+			return err
+		}
+		r.ebpfEventCount.Add(1)
+		return nil
+	}); err != nil {
+		r.logger.Printf("Linux eBPF sensor unavailable: %v; auditd/journald fallback continues", err)
+	}
+}
+
+func (r *Runtime) runSensorHelper(ctx context.Context) {
+	lastError := ""
+	for ctx.Err() == nil {
+		err := r.ebpfHelper.Run(ctx, func(event model.Event) error {
+			if _, err := r.process(event); err != nil {
+				return err
+			}
+			r.ebpfEventCount.Add(1)
+			return nil
+		}, func(health sensoripc.Health) {
+			r.ebpfHelperHealthMu.Lock()
+			r.ebpfHelperHealth = health
+			r.ebpfHelperHealthMu.Unlock()
+		})
+		if ctx.Err() != nil {
+			return
+		}
+		message := "sensor helper stopped"
+		if err != nil {
+			message = err.Error()
+		}
+		if message != lastError {
+			r.logger.Printf("Linux sensor helper unavailable: %v; auditd/journald fallback continues", err)
+			lastError = message
+		}
+		r.ebpfHelperHealthMu.Lock()
+		r.ebpfHelperHealth.Sensor.Enabled = false
+		r.ebpfHelperHealth.Sensor.FallbackReason = message
+		r.ebpfHelperHealthMu.Unlock()
+		timer := time.NewTimer(2 * time.Second)
+		select {
+		case <-ctx.Done():
+			timer.Stop()
+			return
+		case <-timer.C:
+		}
+	}
+}
+
+func (r *Runtime) recordCollectorError(collector string, err error) {
+	if err == nil {
+		return
+	}
+	r.errorCount.Add(1)
+	r.logger.Printf("collector error collector=%s error=%v", collector, err)
+	_, _ = r.journal.Append("collector.error", map[string]string{"collector": collector, "error": err.Error()})
+}
+
+func (r *Runtime) Ingest(_ context.Context, event model.Event) ([]model.Finding, error) {
+	return r.process(event)
+}
+
+func (r *Runtime) process(event model.Event) ([]model.Finding, error) {
+	if r.processGraph != nil {
+		r.processGraph.Enrich(&event)
+	}
+	event.Prepare()
+	event.AgentID = r.cfg.AgentID
+	event.TenantID = r.cfg.TenantID
+	if event.Asset.Hostname == "" {
+		event.Asset.Hostname = r.hostname
+	}
+	redact.Event(&event)
+	if _, err := r.journal.Append("event", event); err != nil {
+		return nil, err
+	}
+	r.eventCount.Add(1)
+	findings := r.detector.Inspect(event)
+	for _, finding := range findings {
+		if _, err := r.journal.Append("finding", finding); err != nil {
+			return findings, err
+		}
+		r.findingCount.Add(1)
+		encoded, _ := json.Marshal(finding)
+		r.logger.Printf("finding %s", encoded)
+	}
+	if r.transportOutbox != nil {
+		if err := r.transportOutbox.Enqueue(event); err != nil {
+			return findings, fmt.Errorf("queue telemetry for Control Plane: %w", err)
+		}
+	}
+	if r.central != nil {
+		r.central.Enqueue(event, findings)
+	}
+	r.enqueueAI(event, findings)
+	if r.protection != nil {
+		outcome, report, err := r.protection.InspectEvent(context.Background(), event)
+		if err != nil {
+			r.recordCollectorError("windows-protection/process", err)
+		} else if report {
+			if err := r.recordProtectionOutcome(outcome); err != nil {
+				return findings, err
+			}
+			if outcome.Finding != nil {
+				findings = append(findings, *outcome.Finding)
+			}
+		}
+	}
+	return findings, nil
+}
+
+func (r *Runtime) recordProtectionOutcome(outcome protection.Outcome) error {
+	if outcome.Event == nil {
+		return nil
+	}
+	event := *outcome.Event
+	event.AgentID = r.cfg.AgentID
+	event.TenantID = r.cfg.TenantID
+	if event.Asset.Hostname == "" {
+		event.Asset.Hostname = r.hostname
+	}
+	event.Prepare()
+	redact.Event(&event)
+	if _, err := r.journal.Append("event", event); err != nil {
+		return err
+	}
+	r.eventCount.Add(1)
+	findings := []model.Finding{}
+	if outcome.Finding != nil {
+		finding := *outcome.Finding
+		finding.AgentID = r.cfg.AgentID
+		finding.TenantID = r.cfg.TenantID
+		finding.Asset = event.Asset
+		finding.EvidenceEventIDs = []string{event.ID}
+		if finding.Attributes == nil {
+			finding.Attributes = map[string]interface{}{}
+		}
+		finding.Attributes["actions"] = outcome.Actions
+		if _, err := r.journal.Append("finding", finding); err != nil {
+			return err
+		}
+		r.findingCount.Add(1)
+		findings = append(findings, finding)
+	}
+	if r.transportOutbox != nil {
+		if err := r.transportOutbox.Enqueue(event); err != nil {
+			return err
+		}
+	}
+	if r.central != nil {
+		r.central.Enqueue(event, findings)
+	}
+	return nil
+}
+
+func (r *Runtime) centralStatus() central.HeartbeatStatus {
+	status := r.Status()
+	return central.HeartbeatStatus{
+		AgentID:      status.AgentID,
+		TenantID:     status.TenantID,
+		ComputerName: status.Hostname,
+		Status:       status.Status,
+		Events:       status.Events,
+		Findings:     status.Findings,
+		Errors:       status.Errors,
+		QueueDepth:   r.central.QueueDepth(),
+	}
+}
+
+func (r *Runtime) Status() Status {
+	sourceCount := len(r.tailers) + len(r.nativeSources)
+	if r.inventoryCollector != nil {
+		sourceCount++
+	}
+	if r.processGraph != nil {
+		sourceCount++
+	}
+	if r.processNetwork != nil {
+		sourceCount++
+	}
+	if r.ebpfSensor != nil || r.ebpfHelper != nil {
+		sourceCount++
+	}
+	if r.protection != nil {
+		sourceCount++
+	}
+	var lastInventoryAt *time.Time
+	if lastNano := r.lastInventoryNano.Load(); lastNano != 0 {
+		value := time.Unix(0, lastNano).UTC()
+		lastInventoryAt = &value
+	}
+	var lastTransportSuccessAt *time.Time
+	var lastProcessGraphAt *time.Time
+	var lastProcessNetworkAt *time.Time
+	if lastNano := r.lastProcessGraphNano.Load(); lastNano != 0 {
+		value := time.Unix(0, lastNano).UTC()
+		lastProcessGraphAt = &value
+	}
+	if lastNano := r.lastProcessNetworkNano.Load(); lastNano != 0 {
+		value := time.Unix(0, lastNano).UTC()
+		lastProcessNetworkAt = &value
+	}
+	if lastNano := r.lastTransportSuccessNano.Load(); lastNano != 0 {
+		value := time.Unix(0, lastNano).UTC()
+		lastTransportSuccessAt = &value
+	}
+	var lastCertificateRenewAt *time.Time
+	if lastNano := r.lastCertificateRenewNano.Load(); lastNano != 0 {
+		value := time.Unix(0, lastNano).UTC()
+		lastCertificateRenewAt = &value
+	}
+	var certificateExpiresAt *time.Time
+	if r.cfg.Transport.Enabled {
+		if expiry, err := enrollment.CertificateExpiry(r.cfg.Transport.CertFile); err == nil {
+			value := expiry.UTC()
+			certificateExpiresAt = &value
+		}
+	}
+	transportStats := transport.OutboxStats{}
+	if r.transportOutbox != nil {
+		if stats, err := r.transportOutbox.Stats(); err == nil {
+			transportStats = stats
+		}
+	}
+	auditStats := native.AuditAssemblyStats{}
+	for _, source := range r.nativeSources {
+		provider, ok := source.(interface {
+			AssemblyStats() native.AuditAssemblyStats
+		})
+		if !ok {
+			continue
+		}
+		stats := provider.AssemblyStats()
+		auditStats.ActiveSerials += stats.ActiveSerials
+		auditStats.AssembledEvents += stats.AssembledEvents
+		auditStats.IncompleteAssemblies += stats.IncompleteAssemblies
+		auditStats.DroppedRecords += stats.DroppedRecords
+	}
+	processGraphStats := processgraph.Stats{}
+	if r.processGraph != nil {
+		processGraphStats = r.processGraph.Stats()
+	}
+	processNetworkStats := networkinventory.Stats{}
+	if r.processNetwork != nil {
+		processNetworkStats = r.processNetwork.Stats()
+	}
+	ebpfHealth := ebpfsensor.Health{}
+	ebpfHelperQueueLoss := uint64(0)
+	if r.ebpfSensor != nil {
+		ebpfHealth = r.ebpfSensor.Health()
+	} else if r.ebpfHelper != nil {
+		r.ebpfHelperHealthMu.RLock()
+		ebpfHealth = r.ebpfHelperHealth.Sensor
+		ebpfHelperQueueLoss = r.ebpfHelperHealth.QueueDropped
+		r.ebpfHelperHealthMu.RUnlock()
+	} else if r.ebpfFallbackReason != "" {
+		ebpfHealth.FallbackReason = r.ebpfFallbackReason
+	}
+	var ebpfLastEventAt *time.Time
+	if !ebpfHealth.LastEventAt.IsZero() {
+		value := ebpfHealth.LastEventAt.UTC()
+		ebpfLastEventAt = &value
+	}
+	status := Status{
+		Status:                   "running",
+		AgentID:                  r.cfg.AgentID,
+		TenantID:                 r.cfg.TenantID,
+		Hostname:                 r.hostname,
+		StartedAt:                r.startedAt,
+		Uptime:                   time.Since(r.startedAt).Round(time.Second).String(),
+		Events:                   r.eventCount.Load(),
+		Findings:                 r.findingCount.Load(),
+		Errors:                   r.errorCount.Load(),
+		Sources:                  sourceCount,
+		FileSources:              len(r.tailers),
+		NativeSources:            len(r.nativeSources),
+		NativeEvents:             r.nativeEventCount.Load(),
+		AuditActiveSerials:       auditStats.ActiveSerials,
+		AuditAssembledEvents:     auditStats.AssembledEvents,
+		AuditIncompleteGroups:    auditStats.IncompleteAssemblies,
+		AuditDroppedRecords:      auditStats.DroppedRecords,
+		AIEnabled:                r.cfg.AI.Enabled,
+		AI:                       r.AIStatus(),
+		InventoryEnabled:         r.inventoryCollector != nil,
+		InventoryRuns:            r.inventoryCount.Load(),
+		ProcessGraphEnabled:      r.processGraph != nil,
+		ProcessGraphEvents:       r.processGraphEventCount.Load(),
+		ProcessGraphActive:       processGraphStats.ActiveProcesses,
+		ProcessGraphExited:       processGraphStats.ExitedProcesses,
+		ProcessGraphReconciles:   processGraphStats.Reconciliations,
+		LastProcessGraphAt:       lastProcessGraphAt,
+		ProcessNetworkEnabled:    r.processNetwork != nil,
+		ProcessNetworkEvents:     r.processNetworkEventCount.Load(),
+		ProcessNetworkSockets:    processNetworkStats.KnownSockets,
+		ProcessNetworkScans:      processNetworkStats.Scans,
+		ProcessNetworkWarnings:   processNetworkStats.Warnings,
+		LastProcessNetworkAt:     lastProcessNetworkAt,
+		EBPFSensorEnabled:        ebpfHealth.Enabled,
+		EBPFEvents:               r.ebpfEventCount.Load(),
+		EBPFLoadedPrograms:       ebpfHealth.LoadedPrograms,
+		EBPFAttachedHooks:        ebpfHealth.AttachedHooks,
+		EBPFRingBufferLoss:       ebpfHealth.RingBufferLoss,
+		EBPFParseErrors:          ebpfHealth.ParseErrors,
+		EBPFEventsPerSecond:      ebpfHealth.EventsPerSecond,
+		EBPFThrottledEvents:      ebpfHealth.ThrottledEvents,
+		EBPFLastEventAt:          ebpfLastEventAt,
+		EBPFFallbackReason:       ebpfHealth.FallbackReason,
+		EBPFHelperQueueLoss:      ebpfHelperQueueLoss,
+		LastInventoryAt:          lastInventoryAt,
+		InventoryInterval:        r.cfg.Inventory.Interval,
+		TransportEnabled:         r.transportSender != nil,
+		TransportPending:         transportStats.Pending,
+		TransportPendingBytes:    transportStats.PendingBytes,
+		TransportDeadLetter:      transportStats.DeadLetter,
+		TransportDeadLetterBytes: transportStats.DeadLetterBty,
+		TransportSent:            r.transportSentCount.Load(),
+		TransportErrors:          r.transportErrorCount.Load(),
+		TransportBackpressure:    r.transportOutbox != nil && transportStats.Pending >= r.cfg.Transport.PendingWarn,
+		LastTransportSuccessAt:   lastTransportSuccessAt,
+		CertificateAutoRenew:     r.cfg.Transport.Enabled && r.cfg.Transport.AutoRenew,
+		CertificateExpiresAt:     certificateExpiresAt,
+		CertificateRenewals:      r.certificateRenewalCount.Load(),
+		LastCertificateRenewAt:   lastCertificateRenewAt,
+		Build:                    buildinfo.Current(),
+		SafetyModel:              "AI may analyze evidence; only typed tools behind deterministic policy may act",
+	}
+	if r.protection != nil {
+		protectionStatus := r.protection.Status()
+		status.Protection = &protectionStatus
+	}
+	return status
+}
+
+func (r *Runtime) Close() error {
+	return r.journal.Close()
+}

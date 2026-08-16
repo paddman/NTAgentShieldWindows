@@ -419,4 +419,682 @@ func (c *Config) applyDefaults(configPath string) {
 		c.Protection.SuspiciousThreshold = 70
 	}
 	if c.Protection.MaliciousThreshold == 0 {
-		c.ProtecßŞô¶‰ËkºwµçUÉÙ…°°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹AÉ½•ÍÍ9•Ñİ½É¬¹I•½¹¥±•%¹Ñ•ÉÙ…°¤($%¥˜•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥ÁÉ½•ÍÍ}¹•Ñİ½É¬¹É•½¹¥±•}¥¹Ñ•ÉÙ…°è€•Üˆ°•ÉÈ¤($%ô($%¥˜¥¹Ñ•ÉÙ…°€ğÑ¥µ”¹M•½¹ñğ¥¹Ñ•ÉÙ…°€øÑ¥µ”¹!½ÕÈì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ½•ÍÍ}¹•Ñİ½É¬¹É•½¹¥±•}¥¹Ñ•ÉÙ…°µÕÍĞ‰”‰•Ñİ••¸€ÅÌ…¹€Å ˆ¤($%ô($%¥˜Œ¹AÉ½•ÍÍ9•Ñİ½É¬¹5…áAÉ½•ÍÍ•Ì€ğ€ÄñğŒ¹AÉ½•ÍÍ9•Ñİ½É¬¹5…áAÉ½•ÍÍ•Ì€ø€ÄØÌàĞì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ½•ÍÍ}¹•Ñİ½É¬¹µ…á}ÁÉ½•ÍÍ•ÌµÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÄØÌàĞˆ¤($%ô($%¥˜Œ¹AÉ½•ÍÍ9•Ñİ½É¬¹5…áM½­•ÑÌ€ğ€ÄñğŒ¹AÉ½•ÍÍ9•Ñİ½É¬¹5…áM½­•ÑÌ€ø€ÌÈÜØàì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ½•ÍÍ}¹•Ñİ½É¬¹µ…á}Í½­•ÑÌµÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÌÈÜØàˆ¤($%ô($%¥˜Œ¹AÉ½•ÍÍ9•Ñİ½É¬¹5…á¥±••ÍÉ¥ÁÑ½ÉÌ€ğ€ÄñğŒ¹AÉ½•ÍÍ9•Ñİ½É¬¹5…á¥±••ÍÉ¥ÁÑ½ÉÌ€ø€ÈØÈÄĞĞì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ½•ÍÍ}¹•Ñİ½É¬¹µ…á}™¥±•}‘•ÍÉ¥ÁÑ½ÉÌµÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÈØÈÄĞĞˆ¤($%ô($%¥˜Œ¹AÉ½•ÍÍ9•Ñİ½É¬¹5…áM½­•ÑÌ€øŒ¹AÉ½•ÍÍ9•Ñİ½É¬¹5…á¥±••ÍÉ¥ÁÑ½ÉÌì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ½•ÍÍ}¹•Ñİ½É¬¹µ…á}Í½­•ÑÌ…¹¹½Ğ•á••µ…á}™¥±•}‘•ÍÉ¥ÁÑ½ÉÌˆ¤($%ô(%ô(%¥˜Œ¹	AM•¹Í½È¹¹…‰±•ì($%¥˜Œ¹	AM•¹Í½È¹I¥¹	Õ™™•É	åÑ•Ì€ğ€ÄğğÈÀñğŒ¹	AM•¹Í½È¹I¥¹	Õ™™•É	åÑ•Ì€ø€ØĞ¨ÄÀÈĞ¨ÄÀÈĞñğŒ¹	AM•¹Í½È¹I¥¹	Õ™™•É	åÑ•Ì˜¡Œ¹	AM•¹Í½È¹I¥¹	Õ™™•É	åÑ•Ì´Ä¤€„ô€Àì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•‰Á™}Í•¹Í½È¹É¥¹}‰Õ™™•É}‰åÑ•ÌµÕÍĞ‰”„Á½İ•È½˜Ñİ¼‰•Ñİ••¸€ÄÀĞàÔÜØ…¹€ØÜÄÀààØĞˆ¤($%ô($%¥˜Œ¹	AM•¹Í½È¹5…áÙ•¹ÑÍA•ÉM•Œ€ğ€ÄÀÀñğŒ¹	AM•¹Í½È¹5…áÙ•¹ÑÍA•ÉM•Œ€ø€ÄÀÀÀÀÀì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•‰Á™}Í•¹Í½È¹µ…á}•Ù•¹ÑÍ}Á•É}Í•ŒµÕÍĞ‰”‰•Ñİ••¸€ÄÀÀ…¹€ÄÀÀÀÀÀˆ¤($%ô(%ô(%¥˜Œ¹AÉ¥Ù¥±••M•Á…É…Ñ¥½¸¹¹…‰±•ì($%¥˜€…™¥±•Á…Ñ ¹%Í‰Ì¡Œ¹AÉ¥Ù¥±••M•Á…É…Ñ¥½¸¹M•¹Í½ÉM½­•Ğ¤ñğ€…™¥±•Á…Ñ ¹%Í‰Ì¡Œ¹AÉ¥Ù¥±••M•Á…É…Ñ¥½¸¹I•ÍÁ½¹Í•M½­•Ğ¤ì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ¥Ù¥±••}Í•Á…É…Ñ¥½¸Í½­•ĞÁ…Ñ¡ÌµÕÍĞ‰”…‰Í½±ÕÑ”ˆ¤($%ô($%¥˜Œ¹AÉ¥Ù¥±••M•Á…É…Ñ¥½¸¹M•¹Í½ÉM½­•Ğ€ôôŒ¹AÉ¥Ù¥±••M•Á…É…Ñ¥½¸¹I•ÍÁ½¹Í•M½­•Ğì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰Í•¹Í½È…¹É•ÍÁ½¹Í”¡•±Á•ÈÍ½­•ÑÌµÕÍĞ‰”‘¥ÍÑ¥¹Ğˆ¤($%ô($%¥˜Œ¹AÉ¥Ù¥±••M•Á…É…Ñ¥½¸¹5…á5•ÍÍ…•	åÑ•Ì€ğ€ĞÀäØñğŒ¹AÉ¥Ù¥±••M•Á…É…Ñ¥½¸¹5…á5•ÍÍ…•	åÑ•Ì€ø€ÄÀÈĞ¨ÄÀÈĞì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ¥Ù¥±••}Í•Á…É…Ñ¥½¸¹µ…á}µ•ÍÍ…•}‰åÑ•ÌµÕÍĞ‰”‰•Ñİ••¸€ĞÀäØ…¹€ÄÀĞàÔÜØˆ¤($%ô($%Ñ¥µ•½ÕĞ°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹AÉ¥Ù¥±••M•Á…É…Ñ¥½¸¹I•ÅÕ•ÍÑQ¥µ•½ÕĞ¤($%¥˜•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥ÁÉ¥Ù¥±••}Í•Á…É…Ñ¥½¸¹É•ÅÕ•ÍÑ}Ñ¥µ•½ÕĞè€•Üˆ°•ÉÈ¤($%ô($%¥˜Ñ¥µ•½ÕĞ€ğ€ÄÀÀ©Ñ¥µ”¹5¥±±¥Í•½¹ñğÑ¥µ•½ÕĞ€øÑ¥µ”¹5¥¹ÕÑ”ì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ¥Ù¥±••}Í•Á…É…Ñ¥½¸¹É•ÅÕ•ÍÑ}Ñ¥µ•½ÕĞµÕÍĞ‰”‰•Ñİ••¸€ÄÀÁµÌ…¹€Å´ˆ¤($%ô(%ô(%¥˜Œ¹•Ñ•Ñ¥½¸¹ÕÑ¡…¥±ÕÉ•Q¡É•Í¡½±€ğ€ÈñğŒ¹•Ñ•Ñ¥½¸¹ÕÑ¡…¥±ÕÉ•Q¡É•Í¡½±€ø€ÄÀÀì($%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰‘•Ñ•Ñ¥½¸¹…ÕÑ¡}™…¥±ÕÉ•}Ñ¡É•Í¡½±µÕÍĞ‰”‰•Ñİ••¸€È…¹€ÄÀÀˆ¤(%ô(%…ÕÑ¡]¥¹‘½Ü°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹•Ñ•Ñ¥½¸¹ÕÑ¡…¥±ÕÉ•]¥¹‘½Ü¤(%¥˜•ÉÈ€„ô¹¥°ì($%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥‘•Ñ•Ñ¥½¸¹…ÕÑ¡}™…¥±ÕÉ•}İ¥¹‘½Üè€•Üˆ°•ÉÈ¤(%ô(%¥˜…ÕÑ¡]¥¹‘½Ü€ğ€ÌÀ©Ñ¥µ”¹M•½¹ñğ…ÕÑ¡]¥¹‘½Ü€ø€ÈĞ©Ñ¥µ”¹!½ÕÈì($%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰‘•Ñ•Ñ¥½¸¹…ÕÑ¡}™…¥±ÕÉ•}İ¥¹‘½ÜµÕÍĞ‰”‰•Ñİ••¸€ÌÁÌ…¹€ÈÑ ˆ¤(%ô(%¥˜Œ¹AÉ½Ñ•Ñ¥½¸¹¹…‰±•ì($%¥˜Œ¹AÉ½Ñ•Ñ¥½¸¹5½‘”€„ô€‰…Õ‘¥Ğˆ€˜˜Œ¹AÉ½Ñ•Ñ¥½¸¹5½‘”€„ô€‰•¹™½É”ˆì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ½Ñ•Ñ¥½¸¹µ½‘”µÕÍĞ‰”…Õ‘¥Ğ½È•¹™½É”ˆ¤($%ô($%…Õ‘¥ÑA•É¥½°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹AÉ½Ñ•Ñ¥½¸¹Õ‘¥ÑA•É¥½¤($%¥˜•ÉÈ€„ô¹¥°ñğ…Õ‘¥ÑA•É¥½€ğ€ÈĞ©Ñ¥µ”¹!½ÕÈñğ…Õ‘¥ÑA•É¥½€ø€äÀ¨ÈĞ©Ñ¥µ”¹!½ÕÈì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ½Ñ•Ñ¥½¸¹…Õ‘¥Ñ}Á•É¥½µÕÍĞ‰”‰•Ñİ••¸€ÈÑ …¹€ÈÄØÁ ˆ¤($%ô($%¥˜Œ¹AÉ½Ñ•Ñ¥½¸¹MÕÍÁ¥¥½ÕÍQ¡É•Í¡½±€ğ€ÄñğŒ¹AÉ½Ñ•Ñ¥½¸¹MÕÍÁ¥¥½ÕÍQ¡É•Í¡½±€ø€ääñğŒ¹AÉ½Ñ•Ñ¥½¸¹5…±¥¥½ÕÍQ¡É•Í¡½±€ğ€ÈñğŒ¹AÉ½Ñ•Ñ¥½¸¹5…±¥¥½ÕÍQ¡É•Í¡½±€ø€ÄÀÀñğŒ¹AÉ½Ñ•Ñ¥½¸¹MÕÍÁ¥¥½ÕÍQ¡É•Í¡½±€øôŒ¹AÉ½Ñ•Ñ¥½¸¹5…±¥¥½ÕÍQ¡É•Í¡½±ì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ½Ñ•Ñ¥½¸Ñ¡É•Í¡½±‘ÌµÕÍĞ‰”½É‘•É•Ù…±Õ•Ì‰•Ñİ••¸€Ä…¹€ÄÀÀˆ¤($%ô($%¥˜±•¸¡Œ¹AÉ½Ñ•Ñ¥½¸¹AÉ½Ñ•Ñ•‘A…Ñ¡Ì¤€ôô€Àì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÁÉ½Ñ•Ñ¥½¸¹ÁÉ½Ñ•Ñ•‘}Á…Ñ¡ÌµÕÍĞ¹½Ğ‰”•µÁÑäİ¡•¸ÁÉ½Ñ•Ñ¥½¸¥Ì•¹…‰±•ˆ¤($%ô(%ô(%¥˜Œ¹M…¹¹•È¹¹…‰±•ì($%ÅÕ¥­%¹Ñ•ÉÙ…°°ÅÕ¥­ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹M…¹¹•È¹EÕ¥­%¹Ñ•ÉÙ…°¤($%™Õ±±%¹Ñ•ÉÙ…°°™Õ±±ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹M…¹¹•È¹Õ±±%¹Ñ•ÉÙ…°¤($%Ñ¥µ•½ÕĞ°Ñ¥µ•½ÕÑÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹M…¹¹•È¹M…¹Q¥µ•½ÕĞ¤($%¥˜ÅÕ¥­ÉÈ€„ô¹¥°ñğÅÕ¥­%¹Ñ•ÉÙ…°€ğÑ¥µ”¹!½ÕÈñğÅÕ¥­%¹Ñ•ÉÙ…°€ø€ÌÀ¨ÈĞ©Ñ¥µ”¹!½ÕÈì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰Í…¹¹•È¹ÅÕ¥­}¥¹Ñ•ÉÙ…°µÕÍĞ‰”‰•Ñİ••¸€Å …¹€ÜÈÁ ˆ¤($%ô($%¥˜™Õ±±ÉÈ€„ô¹¥°ñğ™Õ±±%¹Ñ•ÉÙ…°€ğ€ÈĞ©Ñ¥µ”¹!½ÕÈñğ™Õ±±%¹Ñ•ÉÙ…°€ø€äÀ¨ÈĞ©Ñ¥µ”¹!½ÕÈì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰Í…¹¹•È¹™Õ±±}¥¹Ñ•ÉÙ…°µÕÍĞ‰”‰•Ñİ••¸€ÈÑ …¹€ÈÄØÁ ˆ¤($%ô($%¥˜Ñ¥µ•½ÕÑÉÈ€„ô¹¥°ñğÑ¥µ•½ÕĞ€ğÑ¥µ”¹M•½¹ñğÑ¥µ•½ÕĞ€ø€ÄÀ©Ñ¥µ”¹5¥¹ÕÑ”ì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰Í…¹¹•È¹Í…¹}Ñ¥µ•½ÕĞµÕÍĞ‰”‰•Ñİ••¸€ÅÌ…¹€ÄÁ´ˆ¤($%ô($%¥˜Œ¹M…¹¹•È¹]½É­•ÉÌ€ğ€ÄñğŒ¹M…¹¹•È¹]½É­•ÉÌ€ø€àì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰Í…¹¹•È¹İ½É­•ÉÌµÕÍĞ‰”‰•Ñİ••¸€Ä…¹€àˆ¤($%ô($%¥˜Œ¹M…¹¹•È¹5…áÕÑ½µ…Ñ¥¥±•	åÑ•Ì€ğ€ÄÀÈĞñğŒ¹M…¹¹•È¹5…áÕÑ½µ…Ñ¥¥±•	åÑ•Ì€ø€ÄÀÈĞ¨ÄÀÈĞ¨ÄÀÈĞñğŒ¹M…¹¹•È¹5…áM¡•‘Õ±•‘¥±•	åÑ•Ì€ğŒ¹M…¹¹•È¹5…áÕÑ½µ…Ñ¥¥±•	åÑ•ÌñğŒ¹M…¹¹•È¹5…áM¡•‘Õ±•‘¥±•	åÑ•Ì€ø€Ğ¨ÄÀÈĞ¨ÄÀÈĞ¨ÄÀÈĞì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰Í…¹¹•È™¥±”µÍ¥é”±¥µ¥ÑÌ…É”¥¹Ù…±¥ˆ¤($%ô($%¥˜Œ¹M…¹¹•È¹5…á¥±•ÍA•ÉM…¸€ğ€ÄñğŒ¹M…¹¹•È¹5…á¥±•ÍA•ÉM…¸€ø€ÄÀÀÀÀÀÀì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰Í…¹¹•È¹µ…á}™¥±•Í}Á•É}Í…¸µÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÄÀÀÀÀÀÀˆ¤($%ô(%ô(%¥˜Œ¹I•ÁÕÑ…Ñ¥½¸¹¹…‰±•ì($%¥˜•ÉÈ€èôÙ…±¥‘…Ñ•!QQAMUI0¡Œ¹I•ÁÕÑ…Ñ¥½¸¹¹‘Á½¥¹Ğ°€‰É•ÁÕÑ…Ñ¥½¸¹•¹‘Á½¥¹Ğˆ¤ì•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸•ÉÈ($%ô($%¥˜Ñ¥µ•½ÕĞ°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹I•ÁÕÑ…Ñ¥½¸¹Q¥µ•½ÕĞ¤ì•ÉÈ€„ô¹¥°ñğÑ¥µ•½ÕĞ€ğÑ¥µ”¹M•½¹ñğÑ¥µ•½ÕĞ€ø€ÌÀ©Ñ¥µ”¹M•½¹ì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰É•ÁÕÑ…Ñ¥½¸¹Ñ¥µ•½ÕĞµÕÍĞ‰”‰•Ñİ••¸€ÅÌ…¹€ÌÁÌˆ¤($%ô($%¥˜ÑÑ°°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹I•ÁÕÑ…Ñ¥½¸¹…¡•QQ0¤ì•ÉÈ€„ô¹¥°ñğÑÑ°€ğÑ¥µ”¹5¥¹ÕÑ”ñğÑÑ°€ø€Ü¨ÈĞ©Ñ¥µ”¹!½ÕÈì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰É•ÁÕÑ…Ñ¥½¸¹…¡•}ÑÑ°µÕÍĞ‰”‰•Ñİ••¸€Å´…¹€ÄØá ˆ¤($%ô(%ô(%¥˜Œ¹I•Ñ•¹Ñ¥½¸¹Ù¥‘•¹•…åÌ€ğ€ÄñğŒ¹I•Ñ•¹Ñ¥½¸¹Ù¥‘•¹•…åÌ€ø€ÌØÔÀñğŒ¹I•Ñ•¹Ñ¥½¸¹EÕ…É…¹Ñ¥¹•…åÌ€ğ€ÄñğŒ¹I•Ñ•¹Ñ¥½¸¹EÕ…É…¹Ñ¥¹•…åÌ€ø€ÌØÔÀì($%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰É•Ñ•¹Ñ¥½¸‘…ä±¥µ¥ÑÌµÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÌØÔÀˆ¤(%ô(%¥˜Œ¹I•Ñ•¹Ñ¥½¸¹)½ÕÉ¹…±M•µ•¹Ñ	åÑ•Ì€ğ€ÄØ¨ÄÀÈĞ¨ÄÀÈĞñğŒ¹I•Ñ•¹Ñ¥½¸¹)½ÕÉ¹…±M•µ•¹Ñ	åÑ•Ì€ø€Ğ¨ÄÀÈĞ¨ÄÀÈĞ¨ÄÀÈĞñğŒ¹I•Ñ•¹Ñ¥½¸¹Ù¥‘•¹•5…á	åÑ•Ì€ğŒ¹I•Ñ•¹Ñ¥½¸¹)½ÕÉ¹…±M•µ•¹Ñ	åÑ•ÌñğŒ¹I•Ñ•¹Ñ¥½¸¹EÕ…É…¹Ñ¥¹•5…á	åÑ•Ì€ğ€ÄÀÈĞ¨ÄÀÈĞì($%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰É•Ñ•¹Ñ¥½¸‰åÑ”±¥µ¥ÑÌ…É”¥¹Ù…±¥ˆ¤(%ô(%¥˜Œ¹QÉ…¹ÍÁ½ÉĞ¹¹…‰±•ì($%¥˜ÍÑÉ¥¹Ì¹QÉ¥µMÁ…”¡Œ¹Q•¹…¹Ñ%¤€ôô€ˆˆì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰Ñ•¹…¹Ñ}¥¥ÌÉ•ÅÕ¥É•İ¡•¸ÑÉ…¹ÍÁ½ÉĞ¥Ì•¹…‰±•ˆ¤($%ô($%¥˜•ÉÈ€èôÙ…±¥‘…Ñ•!QQAMUI0¡Œ¹QÉ…¹ÍÁ½ÉĞ¹¹‘Á½¥¹Ğ°€‰ÑÉ…¹ÍÁ½ÉĞ¹•¹‘Á½¥¹Ğˆ¤ì•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸•ÉÈ($%ô($%¥˜Œ¹QÉ…¹ÍÁ½ÉĞ¹•ÉÑ¥±”€ôô€ˆˆñğŒ¹QÉ…¹ÍÁ½ÉĞ¹-•å¥±”€ôô€ˆˆñğŒ¹QÉ…¹ÍÁ½ÉĞ¹¥±”€ôô€ˆˆì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÑÉ…¹ÍÁ½ÉĞ•ÉÑ}™¥±”°­•å}™¥±”°…¹…}™¥±”…É”É•ÅÕ¥É•ˆ¤($%ô($%Ñ¥µ•½ÕĞ°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹QÉ…¹ÍÁ½ÉĞ¹Q¥µ•½ÕĞ¤($%¥˜•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥ÑÉ…¹ÍÁ½ÉĞ¹Ñ¥µ•½ÕĞè€•Üˆ°•ÉÈ¤($%ô($%¥˜Ñ¥µ•½ÕĞ€ğÑ¥µ”¹M•½¹ñğÑ¥µ•½ÕĞ€ø€È©Ñ¥µ”¹5¥¹ÕÑ”ì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÑÉ…¹ÍÁ½ÉĞ¹Ñ¥µ•½ÕĞµÕÍĞ‰”‰•Ñİ••¸€ÅÌ…¹€É´ˆ¤($%ô($%™±ÕÍ¡%¹Ñ•ÉÙ…°°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹QÉ…¹ÍÁ½ÉĞ¹±ÕÍ¡%¹Ñ•ÉÙ…°¤($%¥˜•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥ÑÉ…¹ÍÁ½ÉĞ¹™±ÕÍ¡}¥¹Ñ•ÉÙ…°è€•Üˆ°•ÉÈ¤($%ô($%¥˜™±ÕÍ¡%¹Ñ•ÉÙ…°€ğ€ÈÔÀ©Ñ¥µ”¹5¥±±¥Í•½¹ñğ™±ÕÍ¡%¹Ñ•ÉÙ…°€øÑ¥µ”¹5¥¹ÕÑ”ì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÑÉ…¹ÍÁ½ÉĞ¹™±ÕÍ¡}¥¹Ñ•ÉÙ…°µÕÍĞ‰”‰•Ñİ••¸€ÈÔÁµÌ…¹€Å´ˆ¤($%ô($%¥˜Œ¹QÉ…¹ÍÁ½ÉĞ¹	…Ñ¡M¥é”€ğ€ÄñğŒ¹QÉ…¹ÍÁ½ÉĞ¹	…Ñ¡M¥é”€ø€ÄÀÀÀì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÑÉ…¹ÍÁ½ÉĞ¹‰…Ñ¡}Í¥é”µÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÄÀÀÀˆ¤($%ô($%¥˜Œ¹QÉ…¹ÍÁ½ÉĞ¹A•¹‘¥¹]…É¸€ğ€ÄÀÀñğŒ¹QÉ…¹ÍÁ½ÉĞ¹A•¹‘¥¹]…É¸€ø€ÄÀÀÀÀÀÀì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÑÉ…¹ÍÁ½ÉĞ¹Á•¹‘¥¹}İ…É¸µÕÍĞ‰”‰•Ñİ••¸€ÄÀÀ…¹€ÄÀÀÀÀÀÀˆ¤($%ô($%¥˜Œ¹QÉ…¹ÍÁ½ÉĞ¹ÕÑ½I•¹•Üì($$%¥˜•ÉÈ€èôÙ…±¥‘…Ñ•!QQAMUI0¡Œ¹QÉ…¹ÍÁ½ÉĞ¹I•¹•İ…±¹‘Á½¥¹Ğ°€‰ÑÉ…¹ÍÁ½ÉĞ¹É•¹•İ…±}•¹‘Á½¥¹Ğˆ¤ì•ÉÈ€„ô¹¥°ì($$$%É•ÑÕÉ¸•ÉÈ($$%ô($$%É•¹•İ	•™½É”°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹QÉ…¹ÍÁ½ÉĞ¹I•¹•İ	•™½É”¤($$%¥˜•ÉÈ€„ô¹¥°ì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥ÑÉ…¹ÍÁ½ÉĞ¹É•¹•İ}‰•™½É”è€•Üˆ°•ÉÈ¤($$%ô($$%¥˜É•¹•İ	•™½É”€ğÑ¥µ”¹!½ÕÈñğÉ•¹•İ	•™½É”€ø€äÀ¨ÈĞ©Ñ¥µ”¹!½ÕÈì($$$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÑÉ…¹ÍÁ½ÉĞ¹É•¹•İ}‰•™½É”µÕÍĞ‰”‰•Ñİ••¸€Å …¹€ÈÄØÁ ˆ¤($$%ô($$%¡•­%¹Ñ•ÉÙ…°°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹QÉ…¹ÍÁ½ÉĞ¹I•¹•İ¡•­%¹Ñ•ÉÙ…°¤($$%¥˜•ÉÈ€„ô¹¥°ì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥ÑÉ…¹ÍÁ½ÉĞ¹É•¹•İ}¡•­}¥¹Ñ•ÉÙ…°è€•Üˆ°•ÉÈ¤($$%ô($$%¥˜¡•­%¹Ñ•ÉÙ…°€ğÑ¥µ”¹5¥¹ÕÑ”ñğ¡•­%¹Ñ•ÉÙ…°€ø€ÈĞ©Ñ¥µ”¹!½ÕÈì($$$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰ÑÉ…¹ÍÁ½ÉĞ¹É•¹•İ}¡•­}¥¹Ñ•ÉÙ…°µÕÍĞ‰”‰•Ñİ••¸€Å´…¹€ÈÑ ˆ¤($$%ô($%ô(%ô(%¥˜Œ¹•¹ÑÉ…°¹¹…‰±•ì($%Á…ÉÍ•°•ÉÈ€èôÕÉ°¹A…ÉÍ”¡ÍÑÉ¥¹Ì¹QÉ¥µMÁ…”¡Œ¹•¹ÑÉ…°¹UI0¤¤($%¥˜•ÉÈ€„ô¹¥°ñğÁ…ÉÍ•¹M¡•µ”€ôô€ˆˆñğÁ…ÉÍ•¹!½ÍĞ€ôô€ˆˆì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•¹ÑÉ…°¹ÕÉ°µÕÍĞ‰”…¸…‰Í½±ÕÑ”!QQ@¡L¤UI0İ¡•¸•¹ÑÉ…°¥Ì•¹…‰±•ˆ¤($%ô($%¥˜Á…ÉÍ•¹M¡•µ”€„ô€‰¡ÑÑÀˆ€˜˜Á…ÉÍ•¹M¡•µ”€„ô€‰¡ÑÑÁÌˆì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•¹ÑÉ…°¹ÕÉ°µÕÍĞÕÍ”¡ÑÑÀ½È¡ÑÑÁÌˆ¤($%ô($%¡•…ÉÑ‰•…Ğ°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹•¹ÑÉ…°¹!•…ÉÑ‰•…Ñ%¹Ñ•ÉÙ…°¤($%¥˜•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥•¹ÑÉ…°¹¡•…ÉÑ‰•…Ñ}¥¹Ñ•ÉÙ…°è€•Üˆ°•ÉÈ¤($%ô($%¥˜¡•…ÉÑ‰•…Ğ€ğ€ÄÔ©Ñ¥µ”¹M•½¹ñğ¡•…ÉÑ‰•…Ğ€ø€ÈĞ©Ñ¥µ”¹!½ÕÈì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•¹ÑÉ…°¹¡•…ÉÑ‰•…Ñ}¥¹Ñ•ÉÙ…°µÕÍĞ‰”‰•Ñİ••¸€ÄÕÌ…¹€ÈÑ ˆ¤($%ô($%‰…Ñ °•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Œ¹•¹ÑÉ…°¹	…Ñ¡%¹Ñ•ÉÙ…°¤($%¥˜•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥•¹ÑÉ…°¹‰…Ñ¡}¥¹Ñ•ÉÙ…°è€•Üˆ°•ÉÈ¤($%ô($%¥˜‰…Ñ €ğÑ¥µ”¹M•½¹ñğ‰…Ñ €øÑ¥µ”¹!½ÕÈì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•¹ÑÉ…°¹‰…Ñ¡}¥¹Ñ•ÉÙ…°µÕÍĞ‰”‰•Ñİ••¸€ÅÌ…¹€Å ˆ¤($%ô($%¥˜Œ¹•¹ÑÉ…°¹5…á	…Ñ €ğ€ÄñğŒ¹•¹ÑÉ…°¹5…á	…Ñ €ø€ÔÀÀÀì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•¹ÑÉ…°¹µ…á}‰…Ñ µÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÔÀÀÀˆ¤($%ô($%¥˜Œ¹•¹ÑÉ…°¹EÕ•Õ•M¥é”€ğŒ¹•¹ÑÉ…°¹5…á	…Ñ ñğŒ¹•¹ÑÉ…°¹EÕ•Õ•M¥é”€ø€ÄÀÀÀÀÀì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•¹ÑÉ…°¹ÅÕ•Õ•}Í¥é”µÕÍĞ‰”…Ğ±•…ÍĞµ…á}‰…Ñ …¹¹¼µ½É”Ñ¡…¸€ÄÀÀÀÀÀˆ¤($%ô($%¥˜ÍÑÉ¥¹Ì¹QÉ¥µMÁ…”¡Œ¹•¹ÑÉ…°¹A%-•å¥±”¤€ôô€ˆˆì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•¹ÑÉ…°¹…Á¥}­•å}™¥±”¥ÌÉ•ÅÕ¥É•İ¡•¸•¹ÑÉ…°¥Ì•¹…‰±•ˆ¤($%ô(%ô(%Í••¸€èôµ…ÁmÍÑÉ¥¹uÍÑÉÕÑíõíô(%™½È|°Í½ÕÉ”€èôÉ…¹”Œ¹M½ÕÉ•Ìì($%¥˜€…Í½ÕÉ”¹¹…‰±•ì($$%½¹Ñ¥¹Õ”($%ô($%¥˜Í½ÕÉ”¹%€ôô€ˆˆñğÍ½ÕÉ”¹A…Ñ €ôô€ˆˆñğÍ½ÕÉ”¹½Éµ…Ğ€ôô€ˆˆì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰•… •¹…‰±•Í½ÕÉ”É•ÅÕ¥É•Ì¥°Á…Ñ °…¹™½Éµ…Ğˆ¤($%ô($%¥˜|°½¬€èôÍ••¹mÍ½ÕÉ”¹%tì½¬ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰‘ÕÁ±¥…Ñ”Í½ÕÉ”¥€•Äˆ°Í½ÕÉ”¹%¤($%ô($%Í••¹mÍ½ÕÉ”¹%t€ôÍÑÉÕÑíõíô(%ô(%™½È|°Í½ÕÉ”€èôÉ…¹”Œ¹9…Ñ¥Ù•M½ÕÉ•Ìì($%¥˜€…Í½ÕÉ”¹¹…‰±•ì($$%½¹Ñ¥¹Õ”($%ô($%¥˜€…¹…Ñ¥Ù•M½ÕÉ•%A…ÑÑ•É¸¹5…Ñ¡MÑÉ¥¹œ¡Í½ÕÉ”¹%¤ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”¥€•ÄµÕÍĞµ…Ñ €•Ìˆ°Í½ÕÉ”¹%°¹…Ñ¥Ù•M½ÕÉ•%A…ÑÑ•É¸¹MÑÉ¥¹œ ¤¤($%ô($%¥˜|°½¬€èôÍ••¹mÍ½ÕÉ”¹%tì½¬ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰‘ÕÁ±¥…Ñ”Í½ÕÉ”¥€•Äˆ°Í½ÕÉ”¹%¤($%ô($%Í••¹mÍ½ÕÉ”¹%t€ôÍÑÉÕÑíõíô($%¥˜Í½ÕÉ”¹5…á	…Ñ €ğ€ÄñğÍ½ÕÉ”¹5…á	…Ñ €ø€ÔÀÀÀì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ìµ…á}‰…Ñ µÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÔÀÀÀˆ°Í½ÕÉ”¹%¤($%ô($%Ñ¥µ•½ÕĞ°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Í½ÕÉ”¹½µµ…¹‘Q¥µ•½ÕĞ¤($%¥˜•ÉÈ€„ô¹¥°ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ì½µµ…¹‘}Ñ¥µ•½ÕĞè€•Üˆ°Í½ÕÉ”¹%°•ÉÈ¤($%ô($%¥˜Ñ¥µ•½ÕĞ€ğÑ¥µ”¹M•½¹ñğÑ¥µ•½ÕĞ€ø€È©Ñ¥µ”¹5¥¹ÕÑ”ì($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ì½µµ…¹‘}Ñ¥µ•½ÕĞµÕÍĞ‰”‰•Ñİ••¸€ÅÌ…¹€É´ˆ°Í½ÕÉ”¹%¤($%ô($%Íİ¥Ñ Í½ÕÉ”¹-¥¹ì($%…Í”€‰İ¥¹‘½İÍ}•Ù•¹Ñ±½œˆ°€‰İ¥¹•Ù•¹Ñ±½œˆ°€‰ÍåÍµ½¸ˆè($$%¥˜€…İ¥¹‘½İÍ¡…¹¹•±A…ÑÑ•É¸¹5…Ñ¡MÑÉ¥¹œ¡Í½ÕÉ”¹¡…¹¹•°¤ì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ì¡…Ì¥¹Ù…±¥]¥¹‘½İÌ•Ù•¹Ğ¡…¹¹•°ˆ°Í½ÕÉ”¹%¤($$%ô($$%¥˜±•¸¡Í½ÕÉ”¹Ù•¹Ñ%Ì¤€ø€ÄÈàì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•ÌÍÕÁÁ½ÉÑÌ…Ğµ½ÍĞ€ÄÈà•Ù•¹Ğ%Ìˆ°Í½ÕÉ”¹%¤($$%ô($$%™½È|°•Ù•¹Ñ%€èôÉ…¹”Í½ÕÉ”¹Ù•¹Ñ%Ìì($$$%¥˜•Ù•¹Ñ%€ğ€Äñğ•Ù•¹Ñ%€ø€ØÔÔÌÔì($$$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ì¡…Ì¥¹Ù…±¥•Ù•¹Ğ%€•ˆ°Í½ÕÉ”¹%°•Ù•¹Ñ%¤($$$%ô($$%ô($%…Í”€‰©½ÕÉ¹…±ˆ°€‰©½ÕÉ¹…±Ñ°ˆè($$%¥˜±•¸¡Í½ÕÉ”¹U¹¥ÑÌ¤€ø€ÌÈñğ±•¸¡Í½ÕÉ”¹%‘•¹Ñ¥™¥•ÉÌ¤€ø€ÌÈì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•ÌÍÕÁÁ½ÉÑÌ…Ğµ½ÍĞ€ÌÈÕ¹¥ÑÌ…¹¥‘•¹Ñ¥™¥•ÉÌˆ°Í½ÕÉ”¹%¤($$%ô($$%™½È|°Ù…±Õ”€èôÉ…¹”…ÁÁ•¹¡…ÁÁ•¹¡muÍÑÉ¥¹íô°Í½ÕÉ”¹U¹¥ÑÌ¸¸¸¤°Í½ÕÉ”¹%‘•¹Ñ¥™¥•ÉÌ¸¸¸¤ì($$$%¥˜Ù…±Õ”€ôô€ˆˆñğ±•¸¡Ù…±Õ”¤€ø€ÄÈàñğÍÑÉ¥¹Ì¹½¹Ñ…¥¹Í¹ä¡Ù…±Õ”°€‰qàÀÁqÉq¸ˆ¤ì($$$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ì½¹Ñ…¥¹Ì…¸¥¹Ù…±¥©½ÕÉ¹…±™¥±Ñ•Èˆ°Í½ÕÉ”¹%¤($$$%ô($$%ô($%…Í”€‰…Õ‘¥Ñˆ°€‰±¥¹Õá}…Õ‘¥Ñˆè($$%¥˜Í½ÕÉ”¹A…Ñ €ôô€ˆˆñğ€…™¥±•Á…Ñ ¹%Í‰Ì¡Í½ÕÉ”¹A…Ñ ¤ì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ì…Õ‘¥ÑÁ…Ñ µÕÍĞ‰”…‰Í½±ÕÑ”ˆ°Í½ÕÉ”¹%¤($$%ô($$%¥˜Í½ÕÉ”¹5…áÑ¥Ù•M•É¥…±Ì€ğ€ÄñğÍ½ÕÉ”¹5…áÑ¥Ù•M•É¥…±Ì€ø€ÄÀÈĞì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ìµ…á}…Ñ¥Ù•}Í•É¥…±ÌµÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÄÀÈĞˆ°Í½ÕÉ”¹%¤($$%ô($$%¥˜Í½ÕÉ”¹5…áI•½É‘ÍA•ÉM•É¥…°€ğ€ÄñğÍ½ÕÉ”¹5…áI•½É‘ÍA•ÉM•É¥…°€ø€ÄÀÈĞì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ìµ…á}É•½É‘Í}Á•É}Í•É¥…°µÕÍĞ‰”‰•Ñİ••¸€Ä…¹€ÄÀÈĞˆ°Í½ÕÉ”¹%¤($$%ô($$%¥˜Í½ÕÉ”¹5…á	åÑ•ÍA•ÉM•É¥…°€ğ€ĞÀäØñğÍ½ÕÉ”¹5…á	åÑ•ÍA•ÉM•É¥…°€ø€ÄÀÈĞ¨ÄÀÈĞì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ìµ…á}‰åÑ•Í}Á•É}Í•É¥…°µÕÍĞ‰”‰•Ñİ••¸€ĞÀäØ…¹€ÄÀĞàÔÜØˆ°Í½ÕÉ”¹%¤($$%ô($$$¼¼Ñ¥Ù”É½ÕÁÌ…¹™¥¹…±¥é•É½ÕÁÌİ…¥Ñ¥¹œ™½È‘ÕÉ…‰±”‰…Ñ ($$$¼¼…­¹½İ±•‘•µ•¹Ğ‰½Ñ É•Ñ…¥¸Á…ÉÍ•Õ¹ÑÉÕÍÑ••Ù¥‘•¹”¸	½Õ¹Ñ¡•¥È($$$¼¼½µ‰¥¹•Í•É¥…±¥é•¥¹ÁÕĞ‰Õ‘•ĞÉ…Ñ¡•ÈÑ¡…¸½¹±ä…Ñ¥Ù”Í•É¥…±Ì¸($$%¥˜¥¹ĞØĞ¡Í½ÕÉ”¹5…áÑ¥Ù•M•É¥…±Ì­Í½ÕÉ”¹5…á	…Ñ ¤©¥¹ĞØĞ¡Í½ÕÉ”¹5…á	åÑ•ÍA•ÉM•É¥…°¤€ø€ÌÈ¨ÄÀÈĞ¨ÄÀÈĞì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ì…Õ‘¥Ğ…ÍÍ•µ‰±•È…¹Á•¹‘¥¹œ‰…Ñ µ•µ½Éä‰Õ‘•Ğ•á••‘Ì€ÌÈ5¥ˆ°Í½ÕÉ”¹%¤($$%ô($$%…ÍÍ•µ‰±åQ¥µ•½ÕĞ°•ÉÈ€èôÑ¥µ”¹A…ÉÍ•ÕÉ…Ñ¥½¸¡Í½ÕÉ”¹ÍÍ•µ‰±åQ¥µ•½ÕĞ¤($$%¥˜•ÉÈ€„ô¹¥°ì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¥¹Ù…±¥¹…Ñ¥Ù”Í½ÕÉ”€•Ì…ÍÍ•µ‰±å}Ñ¥µ•½ÕĞè€•Üˆ°Í½ÕÉ”¹%°•ÉÈ¤($$%ô($$%¥˜…ÍÍ•µ‰±åQ¥µ•½ÕĞ€ğ€ÄÀÀ©Ñ¥µ”¹5¥±±¥Í•½¹ñğ…ÍÍ•µ‰±åQ¥µ•½ÕĞ€ø€Ô©Ñ¥µ”¹5¥¹ÕÑ”ì($$$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ì…ÍÍ•µ‰±å}Ñ¥µ•½ÕĞµÕÍĞ‰”‰•Ñİ••¸€ÄÀÁµÌ…¹€Õ´ˆ°Í½ÕÉ”¹%¤($$%ô($%‘•™…Õ±Ğè($$%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰¹…Ñ¥Ù”Í½ÕÉ”€•Ì¡…ÌÕ¹ÍÕÁÁ½ÉÑ•­¥¹€•Äˆ°Í½ÕÉ”¹%°Í½ÕÉ”¹-¥¹¤($%ô(%ô(%É•ÑÕÉ¸¹¥°)ô()™Õ¹ŒÙ…±¥‘…Ñ•!QQAMUI0¡Ù…±Õ”°¹…µ”ÍÑÉ¥¹œ¤•ÉÉ½Èì(%•¹‘Á½¥¹Ğ°•ÉÈ€èôÕÉ°¹A…ÉÍ”¡ÍÑÉ¥¹Ì¹QÉ¥µMÁ…”¡Ù…±Õ”¤¤(%¥˜•ÉÈ€„ô¹¥°ñğ•¹‘Á½¥¹Ğ¹M¡•µ”€„ô€‰¡ÑÑÁÌˆñğ•¹‘Á½¥¹Ğ¹!½ÍĞ€ôô€ˆˆì($%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ˆ•ÌµÕÍĞ‰”…¸…‰Í½±ÕÑ”¡ÑÑÁÌUI0ˆ°¹…µ”¤(%ô(%É•ÑÕÉ¸¹¥°)ô()™Õ¹Œ¹ÍÕÉ••¹Ñ%¡™œ€©½¹™¥œ¤•ÉÉ½Èì(%¥˜™œ¹•¹Ñ%€„ô€ˆˆì($%É•ÑÕÉ¸¹¥°(%ô(%¥˜•ÉÈ€èô¹ÍÕÉ•…Ñ…¥È ©™œ¤ì•ÉÈ€„ô¹¥°ì($%É•ÑÕÉ¸•ÉÈ(%ô(%¥‘•¹Ñ¥ÑåA…Ñ €èô™¥±•Á…Ñ ¹)½¥¸¡™œ¹…Ñ…¥È°€‰…•¹Ğ¹¥ˆ¤(%¥˜½¹Ñ•¹Ğ°•ÉÈ€èô½Ì¹I•…‘¥±”¡¥‘•¹Ñ¥ÑåA…Ñ ¤ì•ÉÈ€ôô¹¥°ì($%¥‘•¹Ñ¥Ñä€èôÍÑÉ¥¹Ì¹QÉ¥µMÁ…”¡ÍÑÉ¥¹œ¡½¹Ñ•¹Ğ¤¤($%¥˜€…ÍÑÉ¥¹Ì¹!…ÍAÉ•™¥à¡¥‘•¹Ñ¥Ñä°€‰…•¹Ñ|ˆ¤ñğ±•¸¡¥‘•¹Ñ¥Ñä¤€ğ€ÈÀì($$%É•ÑÕÉ¸•ÉÉ½ÉÌ¹9•Ü ‰Á•ÉÍ¥ÍÑ•…•¹Ğ¥‘•¹Ñ¥Ñä¥Ì¥¹Ù…±¥ˆ¤($%ô($%™œ¹•¹Ñ%€ô¥‘•¹Ñ¥Ñä($%É•ÑÕÉ¸½Ì¹¡µ½¡¥‘•¹Ñ¥ÑåA…Ñ °€Á¼ØÀÀ¤(%ô•±Í”¥˜€…•ÉÉ½ÉÌ¹%Ì¡•ÉÈ°½Ì¹ÉÉ9½Ñá¥ÍĞ¤ì($%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰É•…Á•ÉÍ¥ÍÑ•…•¹Ğ¥‘•¹Ñ¥Ñäè€•Üˆ°•ÉÈ¤(%ô(%‰Õ˜€èôµ…­”¡mu‰åÑ”°€ÄØ¤(%¥˜|°•ÉÈ€èôÉ…¹¹I•…¡‰Õ˜¤ì•ÉÈ€„ô¹¥°ì($%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰•¹•É…Ñ”…•¹Ğ¥è€•Üˆ°•ÉÈ¤(%ô(%™œ¹•¹Ñ%€ô€‰…•¹Ñ|ˆ€¬¡•à¹¹½‘•Q½MÑÉ¥¹œ¡‰Õ˜¤(%¥˜•ÉÈ€èô½Ì¹]É¥Ñ•¥±”¡¥‘•¹Ñ¥ÑåA…Ñ °mu‰åÑ”¡™œ¹•¹Ñ%¬‰q¸ˆ¤°€Á¼ØÀÀ¤ì•ÉÈ€„ô¹¥°ì($%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰Á•ÉÍ¥ÍĞ…•¹Ğ¥‘•¹Ñ¥Ñäè€•Üˆ°•ÉÈ¤(%ô(%É•ÑÕÉ¸¹¥°)ô()™Õ¹Œ¹ÍÕÉ•…Ñ…¥È¡™œ½¹™¥œ¤•ÉÉ½Èì(%¥˜•ÉÈ€èô½Ì¹5­‘¥É±°¡™œ¹…Ñ…¥È°€Á¼ÜÀÀ¤ì•ÉÈ€„ô¹¥°ì($%É•ÑÕÉ¸™µĞ¹ÉÉ½É˜ ‰É•…Ñ”‘…Ñ„‘¥Èè€•Üˆ°•ÉÈ¤(%ô(%É•ÑÕÉ¸½Ì¹¡µ½¡™œ¹…Ñ…¥È°€Á¼ÜÀÀ¤)ô()™Õ¹Œ‘•™…Õ±Ñ…Ñ…¥È ¤ÍÑÉ¥¹œì(%¥˜ÉÕ¹Ñ¥µ”¹==L€ôô€‰İ¥¹‘½İÌˆì($%¥˜‰…Í”€èô½Ì¹•Ñ•¹Ø ‰AÉ½É…µ…Ñ„ˆ¤ì‰…Í”€„ô€ˆˆì($$%É•ÑÕÉ¸™¥±•Á…Ñ ¹)½¥¸¡‰…Í”°€‰9Q•¹ÑM¡¥•±ˆ¤($%ô(%ô(%É•ÑÕÉ¸€ˆ¸½‘…Ñ„ˆ)ô(
+		c.Protection.MaliciousThreshold = 95
+	}
+	if len(c.Protection.ProtectedPaths) == 0 && runtime.GOOS == "windows" {
+		c.Protection.ProtectedPaths = defaultWindowsProtectionPaths()
+	}
+	if c.Scanner.QuickInterval == "" {
+		c.Scanner.QuickInterval = "24h"
+	}
+	if c.Scanner.FullInterval == "" {
+		c.Scanner.FullInterval = "168h"
+	}
+	if c.Scanner.ScanTimeout == "" {
+		c.Scanner.ScanTimeout = "30s"
+	}
+	if c.Scanner.Workers <= 0 {
+		c.Scanner.Workers = 2
+	}
+	if c.Scanner.MaxAutomaticFileBytes <= 0 {
+		c.Scanner.MaxAutomaticFileBytes = 128 * 1024 * 1024
+	}
+	if c.Scanner.MaxScheduledFileBytes <= 0 {
+		c.Scanner.MaxScheduledFileBytes = 512 * 1024 * 1024
+	}
+	if c.Scanner.MaxFilesPerScan <= 0 {
+		c.Scanner.MaxFilesPerScan = 50000
+	}
+	if len(c.Scanner.QuickPaths) == 0 {
+		c.Scanner.QuickPaths = append([]string(nil), c.Protection.ProtectedPaths...)
+	}
+	if c.Reputation.Timeout == "" {
+		c.Reputation.Timeout = "5s"
+	}
+	if c.Reputation.CacheTTL == "" {
+		c.Reputation.CacheTTL = "24h"
+	}
+	if c.Retention.EvidenceDays <= 0 {
+		c.Retention.EvidenceDays = 30
+	}
+	if c.Retention.EvidenceMaxBytes <= 0 {
+		c.Retention.EvidenceMaxBytes = 5 * 1024 * 1024 * 1024
+	}
+	if c.Retention.QuarantineDays <= 0 {
+		c.Retention.QuarantineDays = 90
+	}
+	if c.Retention.QuarantineMaxBytes <= 0 {
+		c.Retention.QuarantineMaxBytes = 10 * 1024 * 1024 * 1024
+	}
+	if c.Retention.JournalSegmentBytes <= 0 {
+		c.Retention.JournalSegmentBytes = 256 * 1024 * 1024
+	}
+	for _, paths := range []*[]string{&c.Protection.ProtectedPaths, &c.Protection.Exclusions, &c.Scanner.QuickPaths} {
+		for i, path := range *paths {
+			path = os.ExpandEnv(strings.TrimSpace(path))
+			if path != "" && !filepath.IsAbs(path) {
+				path = filepath.Clean(filepath.Join(base, path))
+			}
+			(*paths)[i] = filepath.Clean(path)
+		}
+	}
+	for _, target := range []*string{&c.Scanner.YaraExecutable, &c.Scanner.YaraRules, &c.Scanner.YaraManifest} {
+		if *target != "" && !filepath.IsAbs(*target) {
+			*target = filepath.Clean(filepath.Join(base, *target))
+		}
+	}
+	if c.Inventory.CommandTimeout == "" {
+		c.Inventory.CommandTimeout = "10s"
+	}
+	if c.Inventory.MaxItems <= 0 {
+		c.Inventory.MaxItems = 512
+	}
+	if c.ProcessGraph.ReconcileInterval == "" {
+		c.ProcessGraph.ReconcileInterval = "30s"
+	}
+	if c.ProcessGraph.MaxProcesses <= 0 {
+		c.ProcessGraph.MaxProcesses = 4096
+	}
+	if c.ProcessGraph.MaxExitedProcesses < 0 {
+		c.ProcessGraph.MaxExitedProcesses = 0
+	}
+	if c.ProcessGraph.MaxExitedProcesses == 0 {
+		c.ProcessGraph.MaxExitedProcesses = 2048
+	}
+	if c.ProcessGraph.MaxCommandLineBytes <= 0 {
+		c.ProcessGraph.MaxCommandLineBytes = 4096
+	}
+	if c.ProcessGraph.MaxExecutableHashBytes <= 0 {
+		c.ProcessGraph.MaxExecutableHashBytes = 128 * 1024 * 1024
+	}
+	if c.ProcessNetwork.ReconcileInterval == "" {
+		c.ProcessNetwork.ReconcileInterval = "30s"
+	}
+	if c.ProcessNetwork.MaxProcesses <= 0 {
+		c.ProcessNetwork.MaxProcesses = 4096
+	}
+	if c.ProcessNetwork.MaxSockets <= 0 {
+		c.ProcessNetwork.MaxSockets = 8192
+	}
+	if c.ProcessNetwork.MaxFileDescriptors <= 0 {
+		c.ProcessNetwork.MaxFileDescriptors = 65536
+	}
+	if c.EBPFSensor.RingBufferBytes <= 0 {
+		c.EBPFSensor.RingBufferBytes = 16 * 1024 * 1024
+	}
+	if c.EBPFSensor.MaxEventsPerSec <= 0 {
+		c.EBPFSensor.MaxEventsPerSec = 20000
+	}
+	if c.PrivilegeSeparation.SensorSocket == "" {
+		c.PrivilegeSeparation.SensorSocket = "/run/ntagentshield-sensor/sensor.sock"
+	}
+	if c.PrivilegeSeparation.ResponseSocket == "" {
+		c.PrivilegeSeparation.ResponseSocket = "/run/ntagentshield-response/response.sock"
+	}
+	if c.PrivilegeSeparation.MaxMessageBytes <= 0 {
+		c.PrivilegeSeparation.MaxMessageBytes = 256 * 1024
+	}
+	if c.PrivilegeSeparation.RequestTimeout == "" {
+		c.PrivilegeSeparation.RequestTimeout = "5s"
+	}
+	if c.Transport.CertFile == "" {
+		c.Transport.CertFile = "certs/client.crt"
+	}
+	if c.Transport.KeyFile == "" {
+		c.Transport.KeyFile = "agent-identity.key"
+	}
+	if c.Transport.CAFile == "" {
+		c.Transport.CAFile = "certs/ca.crt"
+	}
+	for _, target := range []*string{&c.Transport.CertFile, &c.Transport.KeyFile, &c.Transport.CAFile} {
+		if !filepath.IsAbs(*target) {
+			*target = filepath.Clean(filepath.Join(c.DataDir, *target))
+		}
+	}
+	if c.Transport.Timeout == "" {
+		c.Transport.Timeout = "15s"
+	}
+	if c.Transport.FlushInterval == "" {
+		c.Transport.FlushInterval = "2s"
+	}
+	if c.Transport.BatchSize <= 0 {
+		c.Transport.BatchSize = 100
+	}
+	if c.Transport.PendingWarn <= 0 {
+		c.Transport.PendingWarn = 10000
+	}
+	if c.Transport.RenewBefore == "" {
+		c.Transport.RenewBefore = "168h"
+	}
+	if c.Transport.RenewCheckInterval == "" {
+		c.Transport.RenewCheckInterval = "1h"
+	}
+	if c.Transport.RenewalEndpoint == "" && c.Transport.Endpoint != "" {
+		if endpoint, err := url.Parse(c.Transport.Endpoint); err == nil && endpoint.Scheme != "" && endpoint.Host != "" {
+			endpoint.Path = "/v1/agent/certificate/renew"
+			endpoint.RawPath = ""
+			endpoint.RawQuery = ""
+			endpoint.Fragment = ""
+			c.Transport.RenewalEndpoint = endpoint.String()
+		}
+	}
+	if c.Central.HeartbeatInterval == "" {
+		c.Central.HeartbeatInterval = "60s"
+	}
+	if c.Central.BatchInterval == "" {
+		c.Central.BatchInterval = "10s"
+	}
+	if c.Central.MaxBatch <= 0 {
+		c.Central.MaxBatch = 100
+	}
+	if c.Central.QueueSize <= 0 {
+		c.Central.QueueSize = 2000
+	}
+	if c.Central.APIKeyFile == "" {
+		c.Central.APIKeyFile = "central-api.key"
+	}
+	if c.Central.EnrollmentTokenFile == "" {
+		c.Central.EnrollmentTokenFile = "central-enrollment.token"
+	}
+	if !filepath.IsAbs(c.Central.APIKeyFile) {
+		c.Central.APIKeyFile = filepath.Join(c.DataDir, c.Central.APIKeyFile)
+	}
+	if !isRootedPath(c.Central.EnrollmentTokenFile) {
+		c.Central.EnrollmentTokenFile = filepath.Clean(filepath.Join(base, c.Central.EnrollmentTokenFile))
+	}
+	for i := range c.Sources {
+		if c.Sources[i].Trust == "" {
+			c.Sources[i].Trust = model.TrustUntrustedTelemetry
+		}
+		if c.Sources[i].MaxBatch <= 0 {
+			c.Sources[i].MaxBatch = 1000
+		}
+		if !filepath.IsAbs(c.Sources[i].Path) {
+			c.Sources[i].Path = filepath.Clean(filepath.Join(base, c.Sources[i].Path))
+		}
+	}
+	for i := range c.NativeSources {
+		source := &c.NativeSources[i]
+		source.Kind = strings.ToLower(strings.TrimSpace(source.Kind))
+		if source.MaxBatch <= 0 {
+			source.MaxBatch = 256
+		}
+		if source.CommandTimeout == "" {
+			source.CommandTimeout = "15s"
+		}
+		if source.Kind == "auditd" || source.Kind == "linux_auditd" {
+			if source.MaxActiveSerials <= 0 {
+				source.MaxActiveSerials = 128
+			}
+			if source.MaxRecordsPerSerial <= 0 {
+				source.MaxRecordsPerSerial = 64
+			}
+			if source.MaxBytesPerSerial <= 0 {
+				source.MaxBytesPerSerial = 64 * 1024
+			}
+			if source.AssemblyTimeout == "" {
+				source.AssemblyTimeout = "2s"
+			}
+		}
+		if (source.Kind == "auditd" || source.Kind == "linux_auditd") && source.Path == "" {
+			source.Path = "/var/log/audit/audit.log"
+		}
+		if source.Path != "" && !filepath.IsAbs(source.Path) {
+			source.Path = filepath.Clean(filepath.Join(base, source.Path))
+		}
+		for unitIndex := range source.Units {
+			source.Units[unitIndex] = strings.TrimSpace(source.Units[unitIndex])
+		}
+		for identifierIndex := range source.Identifiers {
+			source.Identifiers[identifierIndex] = strings.TrimSpace(source.Identifiers[identifierIndex])
+		}
+	}
+	for i, path := range c.Tools.AllowedPaths {
+		if !filepath.IsAbs(path) {
+			c.Tools.AllowedPaths[i] = filepath.Clean(filepath.Join(base, path))
+		}
+	}
+}
+
+// isRootedPath preserves slash-rooted paths from configurations shared across
+// Unix and Windows. filepath.IsAbs alone treats /etc/... as relative on Windows.
+func isRootedPath(value string) bool {
+	return filepath.IsAbs(value) || strings.HasPrefix(value, "/") || strings.HasPrefix(value, "\\")
+}
+
+func defaultWindowsProtectionPaths() []string {
+	paths := []string{}
+	if drive := os.Getenv("SystemDrive"); drive != "" {
+		paths = append(paths, filepath.Join(drive+string(os.PathSeparator), "Users"))
+	}
+	if value := os.Getenv("ProgramData"); value != "" {
+		paths = append(paths, value)
+	}
+	if value := os.Getenv("SystemRoot"); value != "" {
+		paths = append(paths, filepath.Join(value, "Temp"))
+	}
+	return paths
+}
+
+func (c Config) Validate() error {
+	if c.PollInterval < 100*time.Millisecond || c.PollInterval > 24*time.Hour {
+		return errors.New("poll_interval must be between 100ms and 24h")
+	}
+	if c.API.Enabled {
+		host, _, err := net.SplitHostPort(c.API.Listen)
+		if err != nil {
+			return fmt.Errorf("invalid api.listen: %w", err)
+		}
+		ip := net.ParseIP(strings.Trim(host, "[]"))
+		if ip == nil || !ip.IsLoopback() {
+			return errors.New("api.listen must be a loopback address; remote access uses the authenticated transport instead")
+		}
+	}
+	if c.AI.Enabled {
+		if strings.TrimSpace(c.AI.Endpoint) == "" || strings.TrimSpace(c.AI.Model) == "" {
+			return errors.New("ai.endpoint and ai.model are required when AI is enabled")
+		}
+		if timeout, err := time.ParseDuration(c.AI.Timeout); err != nil {
+			return fmt.Errorf("invalid ai.timeout: %w", err)
+		} else if timeout < time.Second || timeout > 5*time.Minute {
+			return errors.New("ai.timeout must be between 1s and 5m")
+		}
+		if c.AI.AutoAnalyze {
+			switch c.AI.MinimumSeverity {
+			case model.SeverityInfo, model.SeverityLow, model.SeverityMedium, model.SeverityHigh, model.SeverityCritical:
+			default:
+				return errors.New("ai.minimum_severity must be info, low, medium, high, or critical")
+			}
+			if c.AI.QueueSize < 1 || c.AI.QueueSize > 1024 {
+				return errors.New("ai.queue_size must be between 1 and 1024")
+			}
+			interval, err := time.ParseDuration(c.AI.MinInterval)
+			if err != nil {
+				return fmt.Errorf("invalid ai.min_interval: %w", err)
+			}
+			if interval < time.Second || interval > time.Hour {
+				return errors.New("ai.min_interval must be between 1s and 1h")
+			}
+			if strings.TrimSpace(c.AI.AuditLogFile) == "" {
+				return errors.New("ai.audit_log_file is required when automatic analysis is enabled")
+			}
+		}
+	}
+	if c.Inventory.Enabled {
+		interval, err := time.ParseDuration(c.Inventory.Interval)
+		if err != nil {
+			return fmt.Errorf("invalid inventory.interval: %w", err)
+		}
+		if interval < time.Minute || interval > 24*time.Hour {
+			return errors.New("inventory.interval must be between 1m and 24h")
+		}
+		timeout, err := time.ParseDuration(c.Inventory.CommandTimeout)
+		if err != nil {
+			return fmt.Errorf("invalid inventory.command_timeout: %w", err)
+		}
+		if timeout < time.Second || timeout > 2*time.Minute {
+			return errors.New("inventory.command_timeout must be between 1s and 2m")
+		}
+		if c.Inventory.MaxItems < 1 || c.Inventory.MaxItems > 10000 {
+			return errors.New("inventory.max_items must be between 1 and 10000")
+		}
+	}
+	if c.ProcessGraph.Enabled {
+		interval, err := time.ParseDuration(c.ProcessGraph.ReconcileInterval)
+		if err != nil {
+			return fmt.Errorf("invalid process_graph.reconcile_interval: %w", err)
+		}
+		if interval < time.Second || interval > time.Hour {
+			return errors.New("process_graph.reconcile_interval must be between 1s and 1h")
+		}
+		if c.ProcessGraph.MaxProcesses < 1 || c.ProcessGraph.MaxProcesses > 16384 {
+			return errors.New("process_graph.max_processes must be between 1 and 16384")
+		}
+		if c.ProcessGraph.MaxExitedProcesses < 0 || c.ProcessGraph.MaxExitedProcesses > 16384 {
+			return errors.New("process_graph.max_exited_processes must be between 0 and 16384")
+		}
+		if c.ProcessGraph.MaxCommandLineBytes < 256 || c.ProcessGraph.MaxCommandLineBytes > 64*1024 {
+			return errors.New("process_graph.max_command_line_bytes must be between 256 and 65536")
+		}
+		if c.ProcessGraph.MaxExecutableHashBytes < 1024*1024 || c.ProcessGraph.MaxExecutableHashBytes > 1024*1024*1024 {
+			return errors.New("process_graph.max_executable_hash_bytes must be between 1048576 and 1073741824")
+		}
+		if int64(c.ProcessGraph.MaxProcesses+c.ProcessGraph.MaxExitedProcesses)*int64(c.ProcessGraph.MaxCommandLineBytes) > 48*1024*1024 {
+			return errors.New("process_graph retained command-line memory budget exceeds 48 MiB")
+		}
+	}
+	if c.ProcessNetwork.Enabled {
+		interval, err := time.ParseDuration(c.ProcessNetwork.ReconcileInterval)
+		if err != nil {
+			return fmt.Errorf("invalid process_network.reconcile_interval: %w", err)
+		}
+		if interval < time.Second || interval > time.Hour {
+			return errors.New("process_network.reconcile_interval must be between 1s and 1h")
+		}
+		if c.ProcessNetwork.MaxProcesses < 1 || c.ProcessNetwork.MaxProcesses > 16384 {
+			return errors.New("process_network.max_processes must be between 1 and 16384")
+		}
+		if c.ProcessNetwork.MaxSockets < 1 || c.ProcessNetwork.MaxSockets > 32768 {
+			return errors.New("process_network.max_sockets must be between 1 and 32768")
+		}
+		if c.ProcessNetwork.MaxFileDescriptors < 1 || c.ProcessNetwork.MaxFileDescriptors > 262144 {
+			return errors.New("process_network.max_file_descriptors must be between 1 and 262144")
+		}
+		if c.ProcessNetwork.MaxSockets > c.ProcessNetwork.MaxFileDescriptors {
+			return errors.New("process_network.max_sockets cannot exceed max_file_descriptors")
+		}
+	}
+	if c.EBPFSensor.Enabled {
+		if c.EBPFSensor.RingBufferBytes < 1<<20 || c.EBPFSensor.RingBufferBytes > 64*1024*1024 || c.EBPFSensor.RingBufferBytes&(c.EBPFSensor.RingBufferBytes-1) != 0 {
+			return errors.New("ebpf_sensor.ring_buffer_bytes must be a power of two between 1048576 and 67108864")
+		}
+		if c.EBPFSensor.MaxEventsPerSec < 100 || c.EBPFSensor.MaxEventsPerSec > 100000 {
+			return errors.New("ebpf_sensor.max_events_per_sec must be between 100 and 100000")
+		}
+	}
+	if c.PrivilegeSeparation.Enabled {
+		if !filepath.IsAbs(c.PrivilegeSeparation.SensorSocket) || !filepath.IsAbs(c.PrivilegeSeparation.ResponseSocket) {
+			return errors.New("privilege_separation socket paths must be absolute")
+		}
+		if c.PrivilegeSeparation.SensorSocket == c.PrivilegeSeparation.ResponseSocket {
+			return errors.New("sensor and response helper sockets must be distinct")
+		}
+		if c.PrivilegeSeparation.MaxMessageBytes < 4096 || c.PrivilegeSeparation.MaxMessageBytes > 1024*1024 {
+			return errors.New("privilege_separation.max_message_bytes must be between 4096 and 1048576")
+		}
+		timeout, err := time.ParseDuration(c.PrivilegeSeparation.RequestTimeout)
+		if err != nil {
+			return fmt.Errorf("invalid privilege_separation.request_timeout: %w", err)
+		}
+		if timeout < 100*time.Millisecond || timeout > time.Minute {
+			return errors.New("privilege_separation.request_timeout must be between 100ms and 1m")
+		}
+	}
+	if c.Detection.AuthFailureThreshold < 2 || c.Detection.AuthFailureThreshold > 100 {
+		return errors.New("detection.auth_failure_threshold must be between 2 and 100")
+	}
+	authWindow, err := time.ParseDuration(c.Detection.AuthFailureWindow)
+	if err != nil {
+		return fmt.Errorf("invalid detection.auth_failure_window: %w", err)
+	}
+	if authWindow < 30*time.Second || authWindow > 24*time.Hour {
+		return errors.New("detection.auth_failure_window must be between 30s and 24h")
+	}
+	if c.Protection.Enabled {
+		if c.Protection.Mode != "audit" && c.Protection.Mode != "enforce" {
+			return errors.New("protection.mode must be audit or enforce")
+		}
+		auditPeriod, err := time.ParseDuration(c.Protection.AuditPeriod)
+		if err != nil || auditPeriod < 24*time.Hour || auditPeriod > 90*24*time.Hour {
+			return errors.New("protection.audit_period must be between 24h and 2160h")
+		}
+		if c.Protection.SuspiciousThreshold < 1 || c.Protection.SuspiciousThreshold > 99 || c.Protection.MaliciousThreshold < 2 || c.Protection.MaliciousThreshold > 100 || c.Protection.SuspiciousThreshold >= c.Protection.MaliciousThreshold {
+			return errors.New("protection thresholds must be ordered values between 1 and 100")
+		}
+		if len(c.Protection.ProtectedPaths) == 0 {
+			return errors.New("protection.protected_paths must not be empty when protection is enabled")
+		}
+	}
+	if c.Scanner.Enabled {
+		quickInterval, quickErr := time.ParseDuration(c.Scanner.QuickInterval)
+		fullInterval, fullErr := time.ParseDuration(c.Scanner.FullInterval)
+		timeout, timeoutErr := time.ParseDuration(c.Scanner.ScanTimeout)
+		if quickErr != nil || quickInterval < time.Hour || quickInterval > 30*24*time.Hour {
+			return errors.New("scanner.quick_interval must be between 1h and 720h")
+		}
+		if fullErr != nil || fullInterval < 24*time.Hour || fullInterval > 90*24*time.Hour {
+			return errors.New("scanner.full_interval must be between 24h and 2160h")
+		}
+		if timeoutErr != nil || timeout < time.Second || timeout > 10*time.Minute {
+			return errors.New("scanner.scan_timeout must be between 1s and 10m")
+		}
+		if c.Scanner.Workers < 1 || c.Scanner.Workers > 8 {
+			return errors.New("scanner.workers must be between 1 and 8")
+		}
+		if c.Scanner.MaxAutomaticFileBytes < 1024 || c.Scanner.MaxAutomaticFileBytes > 1024*1024*1024 || c.Scanner.MaxScheduledFileBytes < c.Scanner.MaxAutomaticFileBytes || c.Scanner.MaxScheduledFileBytes > 4*1024*1024*1024 {
+			return errors.New("scanner file-size limits are invalid")
+		}
+		if c.Scanner.MaxFilesPerScan < 1 || c.Scanner.MaxFilesPerScan > 1000000 {
+			return errors.New("scanner.max_files_per_scan must be between 1 and 1000000")
+		}
+	}
+	if c.Reputation.Enabled {
+		if err := validateHTTPSURL(c.Reputation.Endpoint, "reputation.endpoint"); err != nil {
+			return err
+		}
+		if timeout, err := time.ParseDuration(c.Reputation.Timeout); err != nil || timeout < time.Second || timeout > 30*time.Second {
+			return errors.New("reputation.timeout must be between 1s and 30s")
+		}
+		if ttl, err := time.ParseDuration(c.Reputation.CacheTTL); err != nil || ttl < time.Minute || ttl > 7*24*time.Hour {
+			return errors.New("reputation.cache_ttl must be between 1m and 168h")
+		}
+	}
+	if c.Retention.EvidenceDays < 1 || c.Retention.EvidenceDays > 3650 || c.Retention.QuarantineDays < 1 || c.Retention.QuarantineDays > 3650 {
+		return errors.New("retention day limits must be between 1 and 3650")
+	}
+	if c.Retention.JournalSegmentBytes < 16*1024*1024 || c.Retention.JournalSegmentBytes > 4*1024*1024*1024 || c.Retention.EvidenceMaxBytes < c.Retention.JournalSegmentBytes || c.Retention.QuarantineMaxBytes < 1024*1024 {
+		return errors.New("retention byte limits are invalid")
+	}
+	if c.Transport.Enabled {
+		if strings.TrimSpace(c.TenantID) == "" {
+			return errors.New("tenant_id is required when transport is enabled")
+		}
+		if err := validateHTTPSURL(c.Transport.Endpoint, "transport.endpoint"); err != nil {
+			return err
+		}
+		if c.Transport.CertFile == "" || c.Transport.KeyFile == "" || c.Transport.CAFile == "" {
+			return errors.New("transport cert_file, key_file, and ca_file are required")
+		}
+		timeout, err := time.ParseDuration(c.Transport.Timeout)
+		if err != nil {
+			return fmt.Errorf("invalid transport.timeout: %w", err)
+		}
+		if timeout < time.Second || timeout > 2*time.Minute {
+			return errors.New("transport.timeout must be between 1s and 2m")
+		}
+		flushInterval, err := time.ParseDuration(c.Transport.FlushInterval)
+		if err != nil {
+			return fmt.Errorf("invalid transport.flush_interval: %w", err)
+		}
+		if flushInterval < 250*time.Millisecond || flushInterval > time.Minute {
+			return errors.New("transport.flush_interval must be between 250ms and 1m")
+		}
+		if c.Transport.BatchSize < 1 || c.Transport.BatchSize > 1000 {
+			return errors.New("transport.batch_size must be between 1 and 1000")
+		}
+		if c.Transport.PendingWarn < 100 || c.Transport.PendingWarn > 1000000 {
+			return errors.New("transport.pending_warn must be between 100 and 1000000")
+		}
+		if c.Transport.AutoRenew {
+			if err := validateHTTPSURL(c.Transport.RenewalEndpoint, "transport.renewal_endpoint"); err != nil {
+				return err
+			}
+			renewBefore, err := time.ParseDuration(c.Transport.RenewBefore)
+			if err != nil {
+				return fmt.Errorf("invalid transport.renew_before: %w", err)
+			}
+			if renewBefore < time.Hour || renewBefore > 90*24*time.Hour {
+				return errors.New("transport.renew_before must be between 1h and 2160h")
+			}
+			checkInterval, err := time.ParseDuration(c.Transport.RenewCheckInterval)
+			if err != nil {
+				return fmt.Errorf("invalid transport.renew_check_interval: %w", err)
+			}
+			if checkInterval < time.Minute || checkInterval > 24*time.Hour {
+				return errors.New("transport.renew_check_interval must be between 1m and 24h")
+			}
+		}
+	}
+	if c.Central.Enabled {
+		parsed, err := url.Parse(strings.TrimSpace(c.Central.URL))
+		if err != nil || parsed.Scheme == "" || parsed.Host == "" {
+			return errors.New("central.url must be an absolute HTTP(S) URL when Central is enabled")
+		}
+		if parsed.Scheme != "http" && parsed.Scheme != "https" {
+			return errors.New("central.url must use http or https")
+		}
+		heartbeat, err := time.ParseDuration(c.Central.HeartbeatInterval)
+		if err != nil {
+			return fmt.Errorf("invalid central.heartbeat_interval: %w", err)
+		}
+		if heartbeat < 15*time.Second || heartbeat > 24*time.Hour {
+			return errors.New("central.heartbeat_interval must be between 15s and 24h")
+		}
+		batch, err := time.ParseDuration(c.Central.BatchInterval)
+		if err != nil {
+			return fmt.Errorf("invalid central.batch_interval: %w", err)
+		}
+		if batch < time.Second || batch > time.Hour {
+			return errors.New("central.batch_interval must be between 1s and 1h")
+		}
+		if c.Central.MaxBatch < 1 || c.Central.MaxBatch > 5000 {
+			return errors.New("central.max_batch must be between 1 and 5000")
+		}
+		if c.Central.QueueSize < c.Central.MaxBatch || c.Central.QueueSize > 100000 {
+			return errors.New("central.queue_size must be at least max_batch and no more than 100000")
+		}
+		if strings.TrimSpace(c.Central.APIKeyFile) == "" {
+			return errors.New("central.api_key_file is required when Central is enabled")
+		}
+	}
+	seen := map[string]struct{}{}
+	for _, source := range c.Sources {
+		if !source.Enabled {
+			continue
+		}
+		if source.ID == "" || source.Path == "" || source.Format == "" {
+			return errors.New("each enabled source requires id, path, and format")
+		}
+		if _, ok := seen[source.ID]; ok {
+			return fmt.Errorf("duplicate source id %q", source.ID)
+		}
+		seen[source.ID] = struct{}{}
+	}
+	for _, source := range c.NativeSources {
+		if !source.Enabled {
+			continue
+		}
+		if !nativeSourceIDPattern.MatchString(source.ID) {
+			return fmt.Errorf("native source id %q must match %s", source.ID, nativeSourceIDPattern.String())
+		}
+		if _, ok := seen[source.ID]; ok {
+			return fmt.Errorf("duplicate source id %q", source.ID)
+		}
+		seen[source.ID] = struct{}{}
+		if source.MaxBatch < 1 || source.MaxBatch > 5000 {
+			return fmt.Errorf("native source %s max_batch must be between 1 and 5000", source.ID)
+		}
+		timeout, err := time.ParseDuration(source.CommandTimeout)
+		if err != nil {
+			return fmt.Errorf("native source %s command_timeout: %w", source.ID, err)
+		}
+		if timeout < time.Second || timeout > 2*time.Minute {
+			return fmt.Errorf("native source %s command_timeout must be between 1s and 2m", source.ID)
+		}
+		switch source.Kind {
+		case "windows_eventlog", "wineventlog", "sysmon":
+			if !windowsChannelPattern.MatchString(source.Channel) {
+				return fmt.Errorf("native source %s has invalid Windows event channel", source.ID)
+			}
+			if len(source.EventIDs) > 128 {
+				return fmt.Errorf("native source %s supports at most 128 event IDs", source.ID)
+			}
+			for _, eventID := range source.EventIDs {
+				if eventID < 1 || eventID > 65535 {
+					return fmt.Errorf("native source %s has invalid event ID %d", source.ID, eventID)
+				}
+			}
+		case "journald", "journalctl":
+			if len(source.Units) > 32 || len(source.Identifiers) > 32 {
+				return fmt.Errorf("native source %s supports at most 32 units and identifiers", source.ID)
+			}
+			for _, value := range append(append([]string{}, source.Units...), source.Identifiers...) {
+				if value == "" || len(value) > 128 || strings.ContainsAny(value, "\x00\r\n") {
+					return fmt.Errorf("native source %s contains an invalid journald filter", source.ID)
+				}
+			}
+		case "auditd", "linux_auditd":
+			if source.Path == "" || !filepath.IsAbs(source.Path) {
+				return fmt.Errorf("native source %s auditd path must be absolute", source.ID)
+			}
+			if source.MaxActiveSerials < 1 || source.MaxActiveSerials > 1024 {
+				return fmt.Errorf("native source %s max_active_serials must be between 1 and 1024", source.ID)
+			}
+			if source.MaxRecordsPerSerial < 1 || source.MaxRecordsPerSerial > 1024 {
+				return fmt.Errorf("native source %s max_records_per_serial must be between 1 and 1024", source.ID)
+			}
+			if source.MaxBytesPerSerial < 4096 || source.MaxBytesPerSerial > 1024*1024 {
+				return fmt.Errorf("native source %s max_bytes_per_serial must be between 4096 and 1048576", source.ID)
+			}
+			// Active groups and finalized groups waiting for durable batch
+			// acknowledgement both retain parsed untrusted evidence. Bound their
+			// combined serialized input budget rather than only active serials.
+			if int64(source.MaxActiveSerials+source.MaxBatch)*int64(source.MaxBytesPerSerial) > 32*1024*1024 {
+				return fmt.Errorf("native source %s audit assembler and pending batch memory budget exceeds 32 MiB", source.ID)
+			}
+			assemblyTimeout, err := time.ParseDuration(source.AssemblyTimeout)
+			if err != nil {
+				return fmt.Errorf("invalid native source %s assembly_timeout: %w", source.ID, err)
+			}
+			if assemblyTimeout < 100*time.Millisecond || assemblyTimeout > 5*time.Minute {
+				return fmt.Errorf("native source %s assembly_timeout must be between 100ms and 5m", source.ID)
+			}
+		default:
+			return fmt.Errorf("native source %s has unsupported kind %q", source.ID, source.Kind)
+		}
+	}
+	return nil
+}
+
+func validateHTTPSURL(value, name string) error {
+	endpoint, err := url.Parse(strings.TrimSpace(value))
+	if err != nil || endpoint.Scheme != "https" || endpoint.Host == "" {
+		return fmt.Errorf("%s must be an absolute https URL", name)
+	}
+	return nil
+}
+
+func EnsureAgentID(cfg *Config) error {
+	if cfg.AgentID != "" {
+		return nil
+	}
+	if err := EnsureDataDir(*cfg); err != nil {
+		return err
+	}
+	identityPath := filepath.Join(cfg.DataDir, "agent.id")
+	if content, err := os.ReadFile(identityPath); err == nil {
+		identity := strings.TrimSpace(string(content))
+		if !strings.HasPrefix(identity, "agent_") || len(identity) < 20 {
+			return errors.New("persisted agent identity is invalid")
+		}
+		cfg.AgentID = identity
+		return os.Chmod(identityPath, 0o600)
+	} else if !errors.Is(err, os.ErrNotExist) {
+		return fmt.Errorf("read persisted agent identity: %w", err)
+	}
+	buf := make([]byte, 16)
+	if _, err := rand.Read(buf); err != nil {
+		return fmt.Errorf("generate agent id: %w", err)
+	}
+	cfg.AgentID = "agent_" + hex.EncodeToString(buf)
+	if err := os.WriteFile(identityPath, []byte(cfg.AgentID+"\n"), 0o600); err != nil {
+		return fmt.Errorf("persist agent identity: %w", err)
+	}
+	return nil
+}
+
+func EnsureDataDir(cfg Config) error {
+	if err := os.MkdirAll(cfg.DataDir, 0o700); err != nil {
+		return fmt.Errorf("create data dir: %w", err)
+	}
+	return os.Chmod(cfg.DataDir, 0o700)
+}
+
+func defaultDataDir() string {
+	if runtime.GOOS == "windows" {
+		if base := os.Getenv("ProgramData"); base != "" {
+			return filepath.Join(base, "NTAgentShield")
+		}
+	}
+	return "./data"
+}
