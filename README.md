@@ -92,6 +92,21 @@ commit enrollment tokens or agent API keys to source control.
 }
 ```
 
+## Automatic LLM enrichment
+
+The optional OpenAI-compatible investigator can analyze new findings asynchronously
+at a configured minimum severity. Store its credential in the protected
+`api_key_file`, never directly in `agent.json`. `queue_size` and `min_interval`
+bound the workload, while `audit_log_file` records queued, started, successful,
+failed, and dropped operations as structured JSON Lines.
+
+The authenticated loopback-only `GET /v1/ai` endpoint reports request, success,
+failure, drop, queue, latency, and token-usage metadata. Successful analyses are
+sent to Central as an `ai.analysis` event and an `NTS-AI-ENRICH-001` read-only
+finding. The model receives no tools and cannot execute commands or apply changes.
+
+See `config/windows.example.json` for the complete configuration block.
+
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

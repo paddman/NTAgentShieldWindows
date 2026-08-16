@@ -3,6 +3,7 @@ package config
 import (
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -62,6 +63,49 @@ func TestLoadResolvesCentralPaths(t *testing.T) {
 	}
 	if cfg.Central.EnrollmentTokenFile != "/etc/ntagentshield/enrollment.token" {
 		t.Fatalf("unexpected enrollment token path: %s", cfg.Central.EnrollmentTokenFile)
+	}
+}
+
+func TestLoadResolvesAndValidatesAutomaticAISettings(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "config.json")
+	content := `{
+		"data_dir":"state",
+		"poll_interval":"1s",
+		"api":{"enabled":false},
+		"ai":{
+			"enabled":true,
+			"endpoint":"https://central.example/api/v1/llm/v1",
+			"model":"qwen3.5-9b",
+			"api_key_file":"llm.token",
+			"allow_remote":true,
+			"auto_analyze":true,
+			"minimum_severity":"high",
+			"queue_size":32,
+			"min_interval":"15s",
+			"audit_log_file":"llm.audit.jsonl"
+		}
+	}`
+	if err := os.WriteFile(path, []byte(content), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	cfg, err := Load(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if cfg.AI.APIKeyFile != filepath.Join(dir, "state", "llm.token") {
+		t.Fatalf("unexpected AI key path: %s", cfg.AI.APIKeyFile)
+	}
+	if cfg.AI.AuditLogFile != filepath.Join(dir, "state", "llm.audit.jsonl") {
+		t.Fatalf("unexpected AI audit path: %s", cfg.AI.AuditLogFile)
+	}
+
+	invalid := strings.Replace(content, `"queue_size":32`, `"queue_size":2048`, 1)
+	if err := os.WriteFile(path, []byte(invalid), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := Load(path); err == nil {
+		t.Fatal("expected excessive AI queue size to be rejected")
 	}
 }
 

@@ -15,6 +15,7 @@ var patterns = []struct {
 	replacement string
 }{
 	{regexp.MustCompile(`(?i)\b(Bearer\s+)[A-Za-z0-9._~+/=-]{12,}`), `${1}[REDACTED]`},
+	{regexp.MustCompile(`(?i)\bntllm_[a-f0-9]{32,}\b`), `[REDACTED_NTLLM_TOKEN]`},
 	{regexp.MustCompile(`(?i)\b(password|passwd|pwd|secret|api[_-]?key|access[_-]?token|refresh[_-]?token)\s*[:=]\s*([^\s,;]+)`), `${1}=[REDACTED]`},
 	{regexp.MustCompile(`(?i)(--?(?:password|passwd|pwd|secret|api[_-]?key|access[_-]?token|refresh[_-]?token)\s+)(?:"[^"]*"|'[^']*'|[^\s]+)`), `${1}[REDACTED]`},
 	{regexp.MustCompile(`(?i)\b([a-z][a-z0-9+.-]*://[^:/\s]+:)[^@\s/]+@`), `${1}[REDACTED]@`},

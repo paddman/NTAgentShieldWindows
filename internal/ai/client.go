@@ -35,13 +35,19 @@ type Analysis struct {
 	Content          string `json:"content"`
 	ReadOnly         bool   `json:"read_only"`
 	ToolsExposed     bool   `json:"tools_exposed"`
+	RequestID        string `json:"request_id,omitempty"`
+	FinishReason     string `json:"finish_reason,omitempty"`
+	PromptTokens     int    `json:"prompt_tokens,omitempty"`
+	CompletionTokens int    `json:"completion_tokens,omitempty"`
+	TotalTokens      int    `json:"total_tokens,omitempty"`
 }
 
 type Client struct {
-	endpoint  string
-	model     string
-	apiKeyEnv string
-	http      *http.Client
+	endpoint   string
+	model      string
+	apiKeyEnv  string
+	apiKeyFile string
+	http       *http.Client
 }
 
 func New(cfg config.AI) (*Client, error) {
@@ -63,10 +69,11 @@ func New(cfg config.AI) (*Client, error) {
 		timeout = parsed
 	}
 	return &Client{
-		endpoint:  completionURL(cfg.Endpoint),
-		model:     cfg.Model,
-		apiKeyEnv: cfg.APIKeyEnv,
-		http:      &http.Client{Timeout: timeout},
+		endpoint:   completionURL(cfg.Endpoint),
+		model:      cfg.Model,
+		apiKeyEnv:  cfg.APIKeyEnv,
+		apiKeyFile: cfg.APIKeyFile,
+		http:       &http.Client{Timeout: timeout},
 	}, nil
 }
 
@@ -99,10 +106,11 @@ func (c *Client) Analyze(ctx context.Context, bundle IncidentBundle) (Analysis, 
 ข้อควรระวัง: การหยุด process, block IP, แยกเครื่อง, ปิดบัญชี หรือลบไฟล์ ต้องระบุว่าต้องได้รับอนุมัติจากมนุษย์ก่อนเสมอ`
 	userPrompt := "<UNTRUSTED_EVIDENCE_JSON>\n" + string(encodedEvidence) + "\n</UNTRUSTED_EVIDENCE_JSON>"
 	requestBody := map[string]interface{}{
-		"model":       c.model,
-		"temperature": 0.1,
-		"max_tokens":  1400,
-		"stream":      false,
+		"model":                c.model,
+		"temperature":          0.1,
+		"max_tokens":           1400,
+		"stream":               false,
+		"chat_template_kwargs": map[string]bool{"enable_thinking": false},
 		"messages": []map[string]string{
 			{"role": "system", "content": systemPrompt},
 			{"role": "user", "content": userPrompt},
@@ -117,10 +125,12 @@ func (c *Client) Analyze(ctx context.Context, bundle IncidentBundle) (Analysis, 
 		return Analysis{}, err
 	}
 	req.Header.Set("Content-Type", "application/json")
-	if c.apiKeyEnv != "" {
-		if key := strings.TrimSpace(os.Getenv(c.apiKeyEnv)); key != "" {
-			req.Header.Set("Authorization", "Bearer "+key)
-		}
+	key, err := c.apiKey()
+	if err != nil {
+		return Analysis{}, err
+	}
+	if key != "" {
+		req.Header.Set("Authorization", "Bearer "+key)
 	}
 	response, err := c.http.Do(req)
 	if err != nil {
@@ -138,11 +148,18 @@ func (c *Client) Analyze(ctx context.Context, bundle IncidentBundle) (Analysis, 
 		return Analysis{}, fmt.Errorf("AI endpoint returned %s: %s", response.Status, safeError(body))
 	}
 	var completion struct {
+		ID      string `json:"id"`
 		Choices []struct {
-			Message struct {
+			FinishReason string `json:"finish_reason"`
+			Message      struct {
 				Content string `json:"content"`
 			} `json:"message"`
 		} `json:"choices"`
+		Usage struct {
+			PromptTokens     int `json:"prompt_tokens"`
+			CompletionTokens int `json:"completion_tokens"`
+			TotalTokens      int `json:"total_tokens"`
+		} `json:"usage"`
 	}
 	if err := json.Unmarshal(body, &completion); err != nil {
 		return Analysis{}, fmt.Errorf("decode AI response: %w", err)
@@ -156,7 +173,35 @@ func (c *Client) Analyze(ctx context.Context, bundle IncidentBundle) (Analysis, 
 		Content:          redact.String(completion.Choices[0].Message.Content),
 		ReadOnly:         true,
 		ToolsExposed:     false,
+		RequestID:        completion.ID,
+		FinishReason:     completion.Choices[0].FinishReason,
+		PromptTokens:     completion.Usage.PromptTokens,
+		CompletionTokens: completion.Usage.CompletionTokens,
+		TotalTokens:      completion.Usage.TotalTokens,
 	}, nil
+}
+
+func (c *Client) apiKey() (string, error) {
+	if c.apiKeyEnv != "" {
+		if key := strings.TrimSpace(os.Getenv(c.apiKeyEnv)); key != "" {
+			return key, nil
+		}
+	}
+	if c.apiKeyFile == "" {
+		return "", nil
+	}
+	content, err := os.ReadFile(c.apiKeyFile)
+	if err != nil {
+		return "", fmt.Errorf("read AI API key file: %w", err)
+	}
+	if len(content) > 16*1024 {
+		return "", errors.New("AI API key file exceeds safety size limit")
+	}
+	key := strings.TrimSpace(string(content))
+	if key == "" {
+		return "", errors.New("AI API key file is empty")
+	}
+	return key, nil
 }
 
 func validateEndpoint(raw string, allowRemote bool) error {
