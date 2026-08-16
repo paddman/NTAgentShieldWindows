@@ -372,9 +372,6 @@ func (c *Config) applyDefaults(configPath string) {
 	if !filepath.IsAbs(c.API.TokenFile) {
 		c.API.TokenFile = filepath.Join(c.DataDir, c.API.TokenFile)
 	}
-	if c.Tools.PolicyFile == "" {
-		c.Tools.PolicyFile = "policies/default-policy.json"
-	}
 	if c.AI.Timeout == "" {
 		c.AI.Timeout = "30s"
 	}
@@ -395,6 +392,9 @@ func (c *Config) applyDefaults(configPath string) {
 	}
 	if !filepath.IsAbs(c.AI.AuditLogFile) {
 		c.AI.AuditLogFile = filepath.Join(c.DataDir, c.AI.AuditLogFile)
+	}
+	if c.Tools.PolicyFile == "" {
+		c.Tools.PolicyFile = "policies/default-policy.json"
 	}
 	if !filepath.IsAbs(c.Tools.PolicyFile) {
 		c.Tools.PolicyFile = filepath.Clean(filepath.Join(base, c.Tools.PolicyFile))
