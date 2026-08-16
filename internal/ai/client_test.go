@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
+	"os"
+	"path/filepath"
 	"testing"
 
 	"github.com/paddman/NTAgentShieldWindows/internal/config"
@@ -41,6 +43,46 @@ func TestAnalyzeSendsNoToolsAndMarksEvidenceUntrusted(t *testing.T) {
 	}
 	if !analysis.ReadOnly || analysis.ToolsExposed {
 		t.Fatalf("unexpected analysis safety flags: %+v", analysis)
+	}
+}
+
+func TestAnalyzeReadsBearerTokenFromFileAndReportsUsage(t *testing.T) {
+	directory := t.TempDir()
+	keyFile := filepath.Join(directory, "llm.token")
+	if err := os.WriteFile(keyFile, []byte("secret-value\n"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	var request map[string]interface{}
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if got := r.Header.Get("Authorization"); got != "Bearer secret-value" {
+			t.Fatalf("unexpected Authorization header: %q", got)
+		}
+		if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+			t.Fatal(err)
+		}
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(`{"id":"req-1","choices":[{"finish_reason":"stop","message":{"content":"analysis"}}],"usage":{"prompt_tokens":10,"completion_tokens":4,"total_tokens":14}}`))
+	}))
+	defer server.Close()
+
+	client, err := New(config.AI{
+		Enabled: true, Endpoint: server.URL, Model: "test", Timeout: "5s", APIKeyFile: keyFile,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	event := model.Event{Kind: "web.request"}
+	event.Prepare()
+	analysis, err := client.Analyze(context.Background(), IncidentBundle{Events: []model.Event{event}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	kwargs, ok := request["chat_template_kwargs"].(map[string]interface{})
+	if !ok || kwargs["enable_thinking"] != false {
+		t.Fatalf("thinking was not disabled: %#v", request["chat_template_kwargs"])
+	}
+	if analysis.RequestID != "req-1" || analysis.FinishReason != "stop" || analysis.TotalTokens != 14 {
+		t.Fatalf("unexpected analysis metadata: %#v", analysis)
 	}
 }
 

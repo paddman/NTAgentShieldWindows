@@ -8,9 +8,9 @@ import (
 )
 
 func TestStringRedactsSecrets(t *testing.T) {
-	input := "Authorization: Bearer abcdefghijklmnopqrstuvwxyz password=hunter2 AKIAABCDEFGHIJKLMNOP"
+	input := "Authorization: Bearer abcdefghijklmnopqrstuvwxyz password=hunter2 AKIAABCDEFGHIJKLMNOP ntllm_0123456789abcdef0123456789abcdef"
 	output := String(input)
-	for _, secret := range []string{"abcdefghijklmnopqrstuvwxyz", "hunter2", "AKIAABCDEFGHIJKLMNOP"} {
+	for _, secret := range []string{"abcdefghijklmnopqrstuvwxyz", "hunter2", "AKIAABCDEFGHIJKLMNOP", "ntllm_0123456789abcdef0123456789abcdef"} {
 		if strings.Contains(output, secret) {
 			t.Fatalf("secret %q was not redacted: %s", secret, output)
 		}

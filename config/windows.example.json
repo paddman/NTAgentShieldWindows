@@ -123,9 +123,9 @@
   ],
   "sources": [
     {
-      "id": "iis-default-site",
+      "id": "iis-w3c-sites",
       "enabled": true,
-      "path": "C:\\inetpub\\logs\\LogFiles\\W3SVC1\\u_ex*.log",
+      "path": "C:\\inetpub\\logs\\LogFiles\\W3SVC*\\u_ex*.log",
       "format": "iis_w3c",
       "trust": "untrusted_telemetry",
       "from_start": false,
@@ -158,7 +158,13 @@
     "endpoint": "http://127.0.0.1:8000/v1",
     "model": "Qwen/Qwen3-8B",
     "api_key_env": "NTAGENTSHIELD_AI_API_KEY",
+    "api_key_file": "llm-api.token",
     "allow_remote": false,
-    "timeout": "30s"
+    "timeout": "90s",
+    "auto_analyze": false,
+    "minimum_severity": "high",
+    "queue_size": 64,
+    "min_interval": "30s",
+    "audit_log_file": "llm.audit.jsonl"
   }
 }

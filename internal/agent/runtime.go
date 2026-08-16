@@ -14,6 +14,7 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/paddman/NTAgentShieldWindows/internal/ai"
 	"github.com/paddman/NTAgentShieldWindows/internal/api"
 	"github.com/paddman/NTAgentShieldWindows/internal/baseline"
 	"github.com/paddman/NTAgentShieldWindows/internal/buildinfo"
@@ -78,6 +79,18 @@ type Runtime struct {
 	lastCertificateRenewNano atomic.Int64
 	central                  *central.Client
 	protection               *protection.Controller
+	aiClient                 *ai.Client
+	aiQueue                  chan aiJob
+	aiMinInterval            time.Duration
+	aiRequests               atomic.Uint64
+	aiSuccesses              atomic.Uint64
+	aiFailures               atomic.Uint64
+	aiDropped                atomic.Uint64
+	lastAIStartNano          atomic.Int64
+	lastAISuccessNano        atomic.Int64
+	aiAuditMu                sync.RWMutex
+	aiRecent                 []AIAuditEntry
+	aiLastError              string
 }
 
 type Status struct {
@@ -99,6 +112,7 @@ type Status struct {
 	AuditIncompleteGroups    uint64             `json:"audit_incomplete_groups"`
 	AuditDroppedRecords      uint64             `json:"audit_dropped_records"`
 	AIEnabled                bool               `json:"ai_enabled"`
+	AI                       AIStatus           `json:"ai"`
 	InventoryEnabled         bool               `json:"inventory_enabled"`
 	InventoryRuns            uint64             `json:"inventory_runs"`
 	ProcessGraphEnabled      bool               `json:"process_graph_enabled"`
@@ -171,6 +185,23 @@ func New(cfg config.Config, logger *log.Logger) (*Runtime, error) {
 		}),
 		logger:    logger,
 		startedAt: time.Now().UTC(),
+	}
+	if cfg.AI.Enabled {
+		client, err := ai.New(cfg.AI)
+		if err != nil {
+			_ = journal.Close()
+			return nil, fmt.Errorf("initialize AI investigator: %w", err)
+		}
+		runtime.aiClient = client
+		if cfg.AI.AutoAnalyze {
+			interval, err := time.ParseDuration(cfg.AI.MinInterval)
+			if err != nil {
+				_ = journal.Close()
+				return nil, fmt.Errorf("initialize AI rate limit: %w", err)
+			}
+			runtime.aiQueue = make(chan aiJob, cfg.AI.QueueSize)
+			runtime.aiMinInterval = interval
+		}
 	}
 	for _, source := range cfg.Sources {
 		if !source.Enabled {
@@ -403,6 +434,7 @@ func (r *Runtime) Run(ctx context.Context) error {
 		"certificate_auto_renew":  r.cfg.Transport.AutoRenew,
 		"build":                   buildinfo.Current(),
 		"ai_enabled":              r.cfg.AI.Enabled,
+		"ai_auto_analyze":         r.aiQueue != nil,
 		"protection_enabled":      r.protection != nil,
 		"safety_model":            "untrusted evidence -> deterministic policy gate -> typed tools",
 	}
@@ -418,6 +450,11 @@ func (r *Runtime) Run(ctx context.Context) error {
 			return err
 		}
 		server := api.New(r.cfg.API.Listen, token, func() interface{} { return r.Status() }, r.Ingest)
+		if r.aiClient != nil {
+			if err := server.AddReadOnly("/v1/ai", func() interface{} { return r.AIStatus() }); err != nil {
+				return err
+			}
+		}
 		if r.protection != nil {
 			if err := server.AddReadOnly("/v1/protection", func() interface{} { return r.protection.Status() }); err != nil {
 				return err
@@ -460,6 +497,10 @@ func (r *Runtime) Run(ctx context.Context) error {
 			}
 		}()
 		r.logger.Printf("Central transport enabled url=%s", r.cfg.Central.URL)
+	}
+	if r.aiQueue != nil {
+		go r.runAI(ctx)
+		r.logger.Printf("llm operation=worker status=started model=%s minimum_severity=%s queue_size=%d min_interval=%s audit_log=%s", r.cfg.AI.Model, r.cfg.AI.MinimumSeverity, cap(r.aiQueue), r.cfg.AI.MinInterval, r.cfg.AI.AuditLogFile)
 	}
 	if r.protection != nil {
 		go r.protection.Run(ctx, func(outcome protection.Outcome) {
@@ -815,6 +856,7 @@ func (r *Runtime) process(event model.Event) ([]model.Finding, error) {
 	if r.central != nil {
 		r.central.Enqueue(event, findings)
 	}
+	r.enqueueAI(event, findings)
 	if r.protection != nil {
 		outcome, report, err := r.protection.InspectEvent(context.Background(), event)
 		if err != nil {
@@ -1002,6 +1044,7 @@ func (r *Runtime) Status() Status {
 		AuditIncompleteGroups:    auditStats.IncompleteAssemblies,
 		AuditDroppedRecords:      auditStats.DroppedRecords,
 		AIEnabled:                r.cfg.AI.Enabled,
+		AI:                       r.AIStatus(),
 		InventoryEnabled:         r.inventoryCollector != nil,
 		InventoryRuns:            r.inventoryCount.Load(),
 		ProcessGraphEnabled:      r.processGraph != nil,

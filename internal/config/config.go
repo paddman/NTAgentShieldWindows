@@ -75,12 +75,18 @@ type ToolPolicy struct {
 }
 
 type AI struct {
-	Enabled     bool   `json:"enabled"`
-	Endpoint    string `json:"endpoint"`
-	Model       string `json:"model"`
-	APIKeyEnv   string `json:"api_key_env"`
-	AllowRemote bool   `json:"allow_remote"`
-	Timeout     string `json:"timeout"`
+	Enabled         bool           `json:"enabled"`
+	Endpoint        string         `json:"endpoint"`
+	Model           string         `json:"model"`
+	APIKeyEnv       string         `json:"api_key_env"`
+	APIKeyFile      string         `json:"api_key_file,omitempty"`
+	AllowRemote     bool           `json:"allow_remote"`
+	Timeout         string         `json:"timeout"`
+	AutoAnalyze     bool           `json:"auto_analyze"`
+	MinimumSeverity model.Severity `json:"minimum_severity"`
+	QueueSize       int            `json:"queue_size"`
+	MinInterval     string         `json:"min_interval"`
+	AuditLogFile    string         `json:"audit_log_file"`
 }
 
 type Inventory struct {
@@ -245,7 +251,10 @@ func Default() Config {
 			PolicyFile:   "policies/default-policy.json",
 			AllowedPaths: []string{"."},
 		},
-		AI: AI{Enabled: false, Timeout: "30s"},
+		AI: AI{
+			Enabled: false, Timeout: "30s", MinimumSeverity: model.SeverityHigh,
+			QueueSize: 64, MinInterval: "10s", AuditLogFile: "llm.audit.jsonl",
+		},
 		Detection: Detection{
 			AuthFailureThreshold: 6,
 			AuthFailureWindow:    "5m",
@@ -362,6 +371,27 @@ func (c *Config) applyDefaults(configPath string) {
 	}
 	if !filepath.IsAbs(c.API.TokenFile) {
 		c.API.TokenFile = filepath.Join(c.DataDir, c.API.TokenFile)
+	}
+	if c.AI.Timeout == "" {
+		c.AI.Timeout = "30s"
+	}
+	if c.AI.MinimumSeverity == "" {
+		c.AI.MinimumSeverity = model.SeverityHigh
+	}
+	if c.AI.QueueSize <= 0 {
+		c.AI.QueueSize = 64
+	}
+	if c.AI.MinInterval == "" {
+		c.AI.MinInterval = "10s"
+	}
+	if c.AI.AuditLogFile == "" {
+		c.AI.AuditLogFile = "llm.audit.jsonl"
+	}
+	if c.AI.APIKeyFile != "" && !filepath.IsAbs(c.AI.APIKeyFile) {
+		c.AI.APIKeyFile = filepath.Join(c.DataDir, c.AI.APIKeyFile)
+	}
+	if !filepath.IsAbs(c.AI.AuditLogFile) {
+		c.AI.AuditLogFile = filepath.Join(c.DataDir, c.AI.AuditLogFile)
 	}
 	if c.Tools.PolicyFile == "" {
 		c.Tools.PolicyFile = "policies/default-policy.json"
@@ -664,11 +694,30 @@ func (c Config) Validate() error {
 		if strings.TrimSpace(c.AI.Endpoint) == "" || strings.TrimSpace(c.AI.Model) == "" {
 			return errors.New("ai.endpoint and ai.model are required when AI is enabled")
 		}
-		if c.AI.Timeout == "" {
-			c.AI.Timeout = "30s"
-		}
-		if _, err := time.ParseDuration(c.AI.Timeout); err != nil {
+		if timeout, err := time.ParseDuration(c.AI.Timeout); err != nil {
 			return fmt.Errorf("invalid ai.timeout: %w", err)
+		} else if timeout < time.Second || timeout > 5*time.Minute {
+			return errors.New("ai.timeout must be between 1s and 5m")
+		}
+		if c.AI.AutoAnalyze {
+			switch c.AI.MinimumSeverity {
+			case model.SeverityInfo, model.SeverityLow, model.SeverityMedium, model.SeverityHigh, model.SeverityCritical:
+			default:
+				return errors.New("ai.minimum_severity must be info, low, medium, high, or critical")
+			}
+			if c.AI.QueueSize < 1 || c.AI.QueueSize > 1024 {
+				return errors.New("ai.queue_size must be between 1 and 1024")
+			}
+			interval, err := time.ParseDuration(c.AI.MinInterval)
+			if err != nil {
+				return fmt.Errorf("invalid ai.min_interval: %w", err)
+			}
+			if interval < time.Second || interval > time.Hour {
+				return errors.New("ai.min_interval must be between 1s and 1h")
+			}
+			if strings.TrimSpace(c.AI.AuditLogFile) == "" {
+				return errors.New("ai.audit_log_file is required when automatic analysis is enabled")
+			}
 		}
 	}
 	if c.Inventory.Enabled {
