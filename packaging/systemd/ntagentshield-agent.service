@@ -1,0 +1,37 @@
+[Unit]
+Description=NTAgentShield unprivileged Linux Endpoint Agent
+Documentation=https://github.com/paddman/NTAgentShieldLinux
+After=network-online.target ntagentshield-sensor.service ntagentshield-response.service
+Wants=network-online.target ntagentshield-sensor.service ntagentshield-response.service
+
+[Service]
+Type=simple
+User=ntagentshield-agent
+Group=ntagentshield-agent
+SupplementaryGroups=ntagentshield-ipc
+ExecStart=/usr/bin/ntagentshield-agent --config /etc/ntagentshield/agent.json
+Restart=on-failure
+RestartSec=5s
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadWritePaths=/var/lib/ntagentshield
+ReadOnlyPaths=/var/log /etc/ntagentshield
+CapabilityBoundingSet=
+AmbientCapabilities=
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target

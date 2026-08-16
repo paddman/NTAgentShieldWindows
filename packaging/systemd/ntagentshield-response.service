@@ -1,0 +1,40 @@
+[Unit]
+Description=NTAgentShield restricted Linux response helper
+Documentation=https://github.com/paddman/NTAgentShieldLinux
+After=systemd-tmpfiles-setup.service
+Before=ntagentshield-agent.service
+
+[Service]
+Type=simple
+User=ntagentshield-response
+Group=ntagentshield-ipc
+ExecStart=/usr/bin/ntagentshield-response --config /etc/ntagentshield/agent.json --allow-user ntagentshield-agent
+Restart=on-failure
+RestartSec=5s
+UMask=0007
+RuntimeDirectory=ntagentshield-response
+RuntimeDirectoryMode=0750
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+StateDirectory=ntagentshield-response
+StateDirectoryMode=0700
+ReadWritePaths=/run/ntagentshield-response /var/lib/ntagentshield-response /var/log
+ReadOnlyPaths=/etc/ntagentshield /var/lib/ntagentshield/trust
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_KILL CAP_DAC_OVERRIDE CAP_DAC_READ_SEARCH
+AmbientCapabilities=CAP_NET_ADMIN CAP_KILL CAP_DAC_OVERRIDE CAP_DAC_READ_SEARCH
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target

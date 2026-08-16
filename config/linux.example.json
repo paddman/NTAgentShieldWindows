@@ -1,0 +1,88 @@
+{
+  "agent_id": "",
+  "tenant_id": "replace-with-tenant-id",
+  "data_dir": "/var/lib/ntagentshield",
+  "poll_interval": "1s",
+  "detection": {
+    "auth_failure_threshold": 6,
+    "auth_failure_window": "5m"
+  },
+  "process_graph": {
+    "enabled": true,
+    "reconcile_interval": "30s",
+    "max_processes": 4096,
+    "max_exited_processes": 2048,
+    "max_command_line_bytes": 4096,
+    "max_executable_hash_bytes": 134217728
+  },
+  "proc…32583 tokens truncated…nse.StatusCode < 200 || response.StatusCode >= 300 {
+		return Analysis{}, fmt.Errorf("AI endpoint returned %s: %s", response.Status, safeError(body))
+	}
+	var completion struct {
+		Choices []struct {
+			Message struct {
+				Content string `json:"content"`
+			} `json:"message"`
+		} `json:"choices"`
+	}
+	if err := json.Unmarshal(body, &completion); err != nil {
+		return Analysis{}, fmt.Errorf("decode AI response: %w", err)
+	}
+	if len(completion.Choices) == 0 || strings.TrimSpace(completion.Choices[0].Message.Content) == "" {
+		return Analysis{}, errors.New("AI endpoint returned no analysis")
+	}
+	return Analysis{
+		ProviderEndpoint: c.endpoint,
+		Model:            c.model,
+		Content:          redact.String(completion.Choices[0].Message.Content),
+		ReadOnly:         true,
+		ToolsExposed:     false,
+	}, nil
+}
+
+func validateEndpoint(raw string, allowRemote bool) error {
+	if strings.TrimSpace(raw) == "" {
+		return errors.New("AI endpoint is required")
+	}
+	parsed, err := url.Parse(raw)
+	if err != nil {
+		return fmt.Errorf("invalid AI endpoint: %w", err)
+	}
+	if parsed.User != nil {
+		return errors.New("AI endpoint must not contain credentials")
+	}
+	if parsed.Scheme != "http" && parsed.Scheme != "https" {
+		return errors.New("AI endpoint must use http or https")
+	}
+	host := parsed.Hostname()
+	if host == "" {
+		return errors.New("AI endpoint host is required")
+	}
+	loopback := host == "localhost" || strings.HasPrefix(host, "127.") || host == "::1"
+	if !loopback && !allowRemote {
+		return errors.New("remote AI endpoint is blocked; set ai.allow_remote only after data-governance approval")
+	}
+	if !loopback && parsed.Scheme != "https" {
+		return errors.New("remote AI endpoint must use https")
+	}
+	return nil
+}
+
+func completionURL(endpoint string) string {
+	endpoint = strings.TrimRight(endpoint, "/")
+	if strings.HasSuffix(endpoint, "/v1") {
+		return endpoint + "/chat/completions"
+	}
+	if strings.HasSuffix(endpoint, "/chat/completions") {
+		return endpoint
+	}
+	return endpoint + "/v1/chat/completions"
+}
+
+func safeError(body []byte) string {
+	text := strings.TrimSpace(redact.String(string(body)))
+	if len(text) > 300 {
+		text = text[:300] + "…"
+	}
+	return text
+}
