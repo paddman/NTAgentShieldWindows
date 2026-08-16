@@ -1,0 +1,144 @@
+{
+  "agent_id": "",
+  "tenant_id": "demo-tenant",
+  "data_dir": "../data",
+  "poll_interval": "1s",
+  "detection": {
+    "auth_failure_threshold": 6,
+    "auth_failure_window": "5m"
+  },
+  "inventory": {
+    "enabled": true,
+    "interval": "5m",
+    "command_timeout": "10s",
+    "include_processes": true,
+    "include_services": true,
+    "include_listeners": true,
+    "include_software": true,
+    "max_items": 512
+  },
+  "transport": {
+    "enabled": false,
+    "endpoint": "https://control.example:9443/v1/agent/events",
+    "cert_file": "certs/client.crt",
+    "key_file": "agent-identity.key",
+    "ca_file": "certs/ca.crt",
+    "server_name": "control.example",
+    "timeout": "15s",
+    "flush_interval": "2s",
+    "batch_size": 100,
+    "pending_warn": 10000,
+    "auto_renew": true,
+    "renewal_endpoint": "https://control.example:9443/v1/agent/certificate/renew",
+    "renew_before": "168h",
+    "renew_check_interval": "1h"
+  },
+  "native_sources": [
+    {
+      "id": "demo-windows-security",
+      "enabled": false,
+      "kind": "windows_eventlog",
+      "channel": "Security",
+      "event_ids": [104, 1100, 1102, 4624, 4625, 4648, 4672, 4688, 4697, 4698, 4699, 4700, 4701, 4702, 4719, 4720, 4722, 4724, 4725, 4726, 4728, 4732, 4735, 4755, 4756, 4757, 4946, 4947, 4948, 5156, 5157],
+      "from_start": false,
+      "max_batch": 256,
+      "command_timeout": "15s"
+    },
+    {
+      "id": "demo-linux-journal",
+      "enabled": false,
+      "kind": "journald",
+      "identifiers": ["sshd", "sudo", "su", "polkitd", "cron", "crond", "auditd", "systemd-logind"],
+      "from_start": false,
+      "max_batch": 256,
+      "command_timeout": "15s"
+    },
+    {
+      "id": "demo-linux-audit",
+      "enabled": false,
+      "kind": "auditd",
+      "path": "/var/log/audit/audit.log",
+      "from_start": false,
+      "max_batch": 256,
+      "command_timeout": "15s"
+    }
+  ],
+  "sources": [
+    {
+      "id": "demo-iis",
+      "enabled": true,
+      "path": "../examples/logs/iis.log",
+      "format": "iis_w3c",
+      "trust": "untrusted_telemetry",
+      "from_start": true,
+      "max_batch": 1000
+    },
+    {
+      "id": "demo-nginx",
+      "enabled": true,
+      "path": "../examples/logs/nginx.log",
+      "format": "nginx_combined",
+      "trust": "untrusted_telemetry",
+      "from_start": true,
+      "max_batch": 1000
+    },
+    {
+      "id": "demo-mysql",
+      "enabled": true,
+      "path": "../examples/logs/mysql-general.log",
+      "format": "mysql_general",
+      "trust": "untrusted_telemetry",
+      "from_start": true,
+      "max_batch": 1000
+    },
+    {
+      "id": "demo-syslog",
+      "enabled": true,
+      "path": "../examples/logs/syslog.log",
+      "format": "syslog",
+      "trust": "untrusted_telemetry",
+      "from_start": true,
+      "max_batch": 1000
+    },
+    {
+      "id": "demo-endpoint-events",
+      "enabled": true,
+      "path": "../examples/events/events.jsonl",
+      "format": "jsonl",
+      "trust": "untrusted_telemetry",
+      "from_start": true,
+      "max_batch": 1000
+    }
+  ],
+  "api": {
+    "enabled": true,
+    "listen": "127.0.0.1:9477",
+    "token_file": "agent-api.token"
+  },
+  "central": {
+    "enabled": false,
+    "url": "https://central.example.invalid",
+    "enrollment_token_file": "central-enrollment.token",
+    "api_key_file": "central-api.key",
+    "allow_untrusted_server_certificate": false,
+    "heartbeat_interval": "60s",
+    "batch_interval": "10s",
+    "max_batch": 100,
+    "queue_size": 2000
+  },
+  "tools": {
+    "policy_file": "../policies/default-policy.json",
+    "allowed_paths": [
+      "../examples",
+      "../data"
+    ]
+  },
+  "ai": {
+    "enabled": false,
+    "endpoint": "http://127.0.0.1:8000/v1",
+    "model": "Qwen/Qwen3-8B",
+    "api_key_env": "NTAGENTSHIELD_AI_API_KEY",
+    "allow_remote": false,
+    "timeout": "30s"
+  }
+}
