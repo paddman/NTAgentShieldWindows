@@ -123,9 +123,9 @@
   ],
   "sources": [
     {
-      "id": "iis-default-site",
+      "id": "iis-w3c-sites",
       "enabled": true,
-      "path": "C:\\inetpub\\logs\\LogFiles\\W3SVC1\\u_ex*.log",
+      "path": "C:\\inetpub\\logs\\LogFiles\\W3SVC*\\u_ex*.log",
       "format": "iis_w3c",
       "trust": "untrusted_telemetry",
       "from_start": false,

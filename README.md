@@ -12,7 +12,7 @@ telemetry or AI output cannot directly execute a shell command.
 
 ## Current capabilities
 
-- Windows Security, System, PowerShell, Defender, Sysmon, and IIS collectors
+- Windows Security, System, PowerShell, Defender, Sysmon, and multi-site IIS W3C collectors
 - Process, authentication, persistence, network, and defense-evasion rules
 - YARA-X and AMSI-backed file verdicts
 - Scheduled quick and full malware scans

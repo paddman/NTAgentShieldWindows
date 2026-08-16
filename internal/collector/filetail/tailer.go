@@ -1,6 +1,7 @@
 package filetail
 
 import (
+	"bufio"
 	"bytes"
 	"crypto/sha256"
 	"encoding/hex"
@@ -21,7 +22,7 @@ const maxReadPerPoll = 8 * 1024 * 1024
 type Tailer struct {
 	mu      sync.Mutex
 	cfg     config.Source
-	parser  parser.Parser
+	parsers map[string]parser.Parser
 	offsets map[string]int64
 	seen    map[string]bool
 }
@@ -31,7 +32,7 @@ func New(cfg config.Source) (*Tailer, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &Tailer{cfg: cfg, parser: logParser, offsets: map[string]int64{}, seen: map[string]bool{}}, nil
+	return &Tailer{cfg: cfg, parsers: map[string]parser.Parser{"": logParser}, offsets: map[string]int64{}, seen: map[string]bool{}}, nil
 }
 
 func (t *Tailer) Poll() ([]model.Event, []error) {
@@ -60,6 +61,10 @@ func (t *Tailer) Poll() ([]model.Event, []error) {
 }
 
 func (t *Tailer) pollFile(path string, maxEvents int) ([]model.Event, []error) {
+	logParser, err := t.parserFor(path)
+	if err != nil {
+		return nil, []error{err}
+	}
 	info, err := os.Stat(path)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -80,6 +85,9 @@ func (t *Tailer) pollFile(path string, maxEvents int) ([]model.Event, []error) {
 		t.offsets[path] = offset
 		t.seen[path] = true
 		if !t.cfg.FromStart {
+			if err := t.primeParser(path, logParser); err != nil {
+				return nil, []error{err}
+			}
 			return nil, nil
 		}
 	}
@@ -128,7 +136,7 @@ func (t *Tailer) pollFile(path string, maxEvents int) ([]model.Event, []error) {
 		consumed += len(segment)
 		lineNumber++
 		line := strings.TrimSuffix(strings.TrimSuffix(string(segment), "\n"), "\r")
-		event, parseErr := t.parser.Parse(line)
+		event, parseErr := logParser.Parse(line)
 		if parseErr != nil {
 			errorsFound = append(errorsFound, fmt.Errorf("parse %s line %d: %w", path, lineNumber, parseErr))
 			continue
@@ -148,4 +156,47 @@ func (t *Tailer) pollFile(path string, maxEvents int) ([]model.Event, []error) {
 	}
 	t.offsets[path] = offset + int64(consumed)
 	return events, errorsFound
+}
+
+func (t *Tailer) parserFor(path string) (parser.Parser, error) {
+	if logParser, exists := t.parsers[path]; exists {
+		return logParser, nil
+	}
+	logParser, err := parser.New(t.cfg.Format, t.cfg.ID)
+	if err != nil {
+		return nil, fmt.Errorf("source %s parser for %s: %w", t.cfg.ID, path, err)
+	}
+	t.parsers[path] = logParser
+	return logParser, nil
+}
+
+// primeParser loads metadata such as the IIS W3C #Fields header without
+// replaying historical requests when a source starts at the end of a file.
+func (t *Tailer) primeParser(path string, logParser parser.Parser) error {
+	if t.cfg.Format != "iis" && t.cfg.Format != "iis_w3c" {
+		return nil
+	}
+	file, err := os.Open(path)
+	if err != nil {
+		return fmt.Errorf("prime source %s from %s: %w", t.cfg.ID, path, err)
+	}
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	scanner.Buffer(make([]byte, 64*1024), 1024*1024)
+	for lines := 0; scanner.Scan() && lines < 256; lines++ {
+		line := strings.TrimSpace(scanner.Text())
+		if line == "" {
+			continue
+		}
+		if !strings.HasPrefix(line, "#") {
+			break
+		}
+		if _, err := logParser.Parse(line); err != nil {
+			return fmt.Errorf("prime source %s from %s: %w", t.cfg.ID, path, err)
+		}
+	}
+	if err := scanner.Err(); err != nil {
+		return fmt.Errorf("prime source %s from %s: %w", t.cfg.ID, path, err)
+	}
+	return nil
 }
